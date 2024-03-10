@@ -1,0 +1,20 @@
+# PHP
+/vendor
+composer.phar
+
+# NPM
+/node_modules
+
+# Application
+/config/db.php
+/config/params.php
+/config/local.php
+/tests/config/db.php
+
+# Debug
+/web/css/*.map
+/web/js/*.map
+
+# OS cache files
+.DS_Store
+Thumbs.db
