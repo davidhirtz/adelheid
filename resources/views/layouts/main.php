@@ -29,18 +29,18 @@ use yii\helpers\Url;
     </head>
     <body>
     <?php $this->beginBody(); ?>
-    <header class="header fixed-lg w-12">
-        <div class="container box flex-lg justify-between">
+    <header class="header w-12">
+        <div class="container flex-lg box justify-between items-center">
+            <div class="hidden block-sm">
+                <a href="tel:00498614782" class="btn btn-primary uppercase">Termin unter: 0861 4782</a>
+            </div>
             <div class="absolute header-logo">
                 <a href="/" class="logo canvas">
                     <img src="/images/site/logo.svg" alt="Adelheid Friseur Logo">
                 </a>
             </div>
-            <div class="hidden block-sm">
-                <a href="tel:00498614782" class="btn btn-primary uppercase">Termin unter: 0861 4782</a>
-            </div>
             <nav class="menu hidden block-lg">
-                <ul class="flex-lg uppercase">
+                <ul class="menu-items flex-lg items-center uppercase ">
                     <?php foreach (NavItems::getMenuItems() as $entry) {
                         ?>
                         <li class="menu-item">
@@ -49,7 +49,7 @@ use yii\helpers\Url;
                         <?php
                     } ?>
                 </ul>
-                <ul class="flex justify-center fixed-lg">
+                <ul class="menu-icons flex justify-center hidden-lg">
                     <li class="menu-icon">
                         <a href="https://www.facebook.com/adelheidfriseur/"
                            class="block icon icon-facebook"
@@ -67,7 +67,7 @@ use yii\helpers\Url;
         </div>
     </header>
     <button class="menu-btn menu-toggle fixed hidden-lg" aria-label="Menü anzeigen"></button>
-    <main>
+    <main class="container hidden-menu">
         <?= $content; ?>
     </main>
     <script src="<?= $this->getFilenameWithVersion('js/site.js'); ?>"></script>

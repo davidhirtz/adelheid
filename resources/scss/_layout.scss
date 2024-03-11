@@ -6,8 +6,14 @@
 }
 
 .wrap {
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(lg) {
     padding: 0 var(--box-x);
+  }
+}
+
+.content:first-child {
+  @include media-breakpoint-up(lg) {
+    padding-top: calc(var(--logo-h) + var(--box-y));
   }
 }
 

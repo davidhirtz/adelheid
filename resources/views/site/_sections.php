@@ -12,11 +12,10 @@ use davidhirtz\yii2\cms\widgets\Gallery;
 use davidhirtz\yii2\skeleton\web\View;
 
 ?>
-<div class="wrap flex flex-wrap justify-center">
-    <?php
-    foreach ($sections as $section) {
+<div class="content wrap flex flex-wrap justify-center">
+    <?php foreach ($sections as $section) {
         ?>
-        <section class="<?= $section->getCssClass(); ?> animate" id="<?= $section->getHtmlId(); ?>" data-animation="fade-in">
+        <section class="<?= $section->getCssClass(); ?> animate observe" id="<?= $section->getHtmlId(); ?>" data-animation="fade-in">
             <?php if ($assets = $section->getVisibleAssets()) {
                 echo Gallery::widget(['assets' => $assets]);
             } ?>

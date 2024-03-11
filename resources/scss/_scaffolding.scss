@@ -1,6 +1,10 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/overlay" as *;
 
+section {
+  position: relative;
+}
+
 .icon {
   width: 40px;
   height: 40px;

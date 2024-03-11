@@ -25,7 +25,7 @@ class Section extends \davidhirtz\yii2\cms\models\Section
         return [
             static::TYPE_COLUMN => [
                 'name' => Yii::t('app', 'Column'),
-                'cssClass' => 'w-12 w-6-sm',
+                'cssClass' => 'w-12 w-6-sm box',
                 'hiddenFields' => [],
                 'sizes' => [],
                 'transformations' => [],

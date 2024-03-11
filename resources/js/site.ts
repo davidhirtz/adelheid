@@ -14,7 +14,7 @@ const consent = new Consent({modules: [gtag]});
 
 const doc = document;
 const $body = doc.querySelector('body');
-const $header = doc.querySelector('header');
+const $header = $body.querySelector('header');
 const $navLinks = $body.querySelectorAll('nav a') as NodeListOf<HTMLAnchorElement>;
 const $cookieReset = doc.getElementById('reset');
 
@@ -26,8 +26,8 @@ const hiddenClass = 'hidden';
 const addClass = ($el: HTMLElement, className?: string) => $el.classList.add(className || router.a);
 const removeClass = ($el: HTMLElement, className?: string) => $el && $el.classList.remove(className || router.a);
 
-const resetMenu = () => removeClass($body, hasMenuClass);
 const setHeaderHeight = () => headerHeight = $header.offsetHeight
+const resetMenu = () => removeClass($body, hasMenuClass);
 
 const clickHandler = (querySelector: string, callback: EventListenerOrEventListenerObject) => {
     doc.querySelectorAll(querySelector).forEach((el) => {
@@ -102,15 +102,11 @@ const onScroll = () => {
             isHeaderCollapsed = false;
         }
 
-        lastYScroll = scrollY;
-
-        // Make sure the header is not animating to translate from ".is-collapsed" when ".is-scrolled" is triggered to
-        // avoid a background-color flickering effect.
         if (!isScrolled && scrollY > (headerHeight * 2)) {
             addClass($body, isScrolledClass);
             isScrolled = true;
 
-        } else if (isScrolled && scrollY < headerHeight) {
+        } else if (isScrolled && !scrollY) {
             removeClass($body, isScrolledClass);
             isScrolled = false;
         }
@@ -120,23 +116,21 @@ const onScroll = () => {
 }
 
 let isScrolled = false;
-let headerHeight = 0;
+let headerHeight = 190;
 let isHeaderCollapsed = false;
 let lastYScroll = 0;
 let yPos = 0;
 let instagramItems: Array<InstagramFeedItem> | undefined;
 
 (doc.querySelector('.menu-toggle') as HTMLButtonElement).onclick = () => {
-    const isMobile = window.innerWidth < 1024;
-
     if ($body.classList.contains(hasMenuClass)) {
         resetMenu();
 
-        if (isMobile) {
+        if (isMobile()) {
             window.scrollTo(0, yPos)
         }
     } else {
-        if (isMobile) {
+        if (isMobile()) {
             yPos = window.scrollY;
             window.scrollTo(0, 0);
         }
@@ -164,8 +158,13 @@ router.onUnhandledClick = () => {
 }
 
 router.afterRender = () => {
+    resetMenu();
+
     // Menu.
-    $navLinks.forEach($link => $link.classList.toggle(router.a, $link.href === location.href));
+    const url = new URL(location.href);
+    const href = url.origin + url.pathname;
+
+    $navLinks.forEach($link => $link.classList.toggle(router.a, $link.href === href));
 
     // Home.
     clickHandler('.scroll-down', () => {
@@ -232,4 +231,4 @@ setHeaderHeight();
 router.afterRender();
 
 window.addEventListener('scroll', onScroll, {passive: true});
-window.addEventListener('resize', setHeaderHeight, {passive: true});
+window.addEventListener('scroll', setHeaderHeight, {passive: true});
