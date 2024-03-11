@@ -30,40 +30,40 @@ use yii\helpers\Url;
     <body>
     <?php $this->beginBody(); ?>
     <header class="header w-12">
-        <div class="container flex-lg box justify-between items-center">
-            <div class="hidden block-sm">
-                <a href="tel:00498614782" class="btn btn-primary uppercase">Termin unter: 0861 4782</a>
-            </div>
-            <div class="absolute header-logo">
-                <a href="/" class="logo canvas">
+        <div class="container">
+            <div class="navbar grid box items-center justify-center">
+                <div class="phone hidden block-sm">
+                    <a href="tel:00498614782" class="btn btn-primary uppercase">Termin unter: 0861 4782</a>
+                </div>
+                <a href="/" class="logo canvas mx-auto">
                     <img src="/images/site/logo.svg" alt="Adelheid Friseur Logo">
                 </a>
-            </div>
-            <nav class="menu hidden block-lg">
-                <ul class="menu-items flex-lg items-center uppercase ">
-                    <?php foreach (NavItems::getMenuItems() as $entry) {
-                        ?>
-                        <li class="menu-item">
-                            <?= Html::link($entry, ['class' => 'nav-link']); ?>
+                <nav class="menu hidden block-lg">
+                    <ul class="flex-lg justify-end uppercase">
+                        <?php foreach (NavItems::getMenuItems() as $entry) {
+                            ?>
+                            <li class="menu-item">
+                                <?= Html::link($entry, ['class' => 'nav-link']); ?>
+                            </li>
+                            <?php
+                        } ?>
+                    </ul>
+                    <ul class="menu-icons flex justify-center hidden-lg">
+                        <li class="menu-icon">
+                            <a href="https://www.facebook.com/adelheidfriseur/"
+                               class="block icon icon-facebook"
+                               target="_blank"
+                               title="Facebook"></a>
                         </li>
-                        <?php
-                    } ?>
-                </ul>
-                <ul class="menu-icons flex justify-center hidden-lg">
-                    <li class="menu-icon">
-                        <a href="https://www.facebook.com/adelheidfriseur/"
-                           class="block icon icon-facebook"
-                           target="_blank"
-                           title="Facebook"></a>
-                    </li>
-                    <li class="menu-icon">
-                        <a href="https://www.instagram.com/hairstyle.adelheidfrisoer/"
-                           class="block icon icon-instagram"
-                           target="_blank"
-                           title="Instagram"></a>
-                    </li>
-                </ul>
-            </nav>
+                        <li class="menu-icon">
+                            <a href="https://www.instagram.com/hairstyle.adelheidfrisoer/"
+                               class="block icon icon-instagram"
+                               target="_blank"
+                               title="Instagram"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <button class="menu-btn menu-toggle fixed hidden-lg" aria-label="Menü anzeigen"></button>

@@ -10,13 +10,13 @@
 
   @include media-breakpoint-up(lg) {
     position: absolute;
-    transition: transform .3s;
     z-index: 10;
 
     .is-scrolled & {
       position: fixed;
       background: #FFFCF7;
       border-bottom: 2px solid #ad9963;
+      transition: transform .3s;
     }
 
     .is-collapsed & {
@@ -34,16 +34,31 @@
   }
 }
 
-.header-logo {
-  top: var(--box-y);
-  left: calc(50% - var(--logo-w) / 2);
+.navbar {
+  grid-template: var(--logo-h) auto / 1fr var(--logo-w) 1fr;
+  grid-template-areas: "logo logo logo" "menu menu menu";
+
+  @include media-breakpoint-down(md) {
+    .has-menu & {
+      min-height: 100svh;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    grid-template-areas: "phone logo ." "menu menu menu";
+  }
 
   @include media-breakpoint-up(lg) {
-    top: calc(var(--box-y) + 3px); // make line align with active menu
+    grid-template-areas: "phone logo menu";
   }
 }
 
+.phone {
+  grid-area: phone;
+}
+
 .logo {
+  grid-area: logo;
   width: var(--logo-w);
   height: var(--logo-h);
 }
@@ -62,22 +77,15 @@
 }
 
 .menu {
+  grid-area: menu;
+
   @include media-breakpoint-down(md) {
     .has-menu & {
-      display: flex;
-      justify-content: center;
-      flex-flow: column;
-      min-height: calc(100svh - var(--box-y) * 2);
+      display: grid;
       text-align: center;
       font-size: 28px;
-      line-height: 2;
+      line-height: 1.8;
     }
-  }
-}
-
-.menu-items {
-  @include media-breakpoint-up(lg) {
-    height: var(--logo-h);
   }
 }
 

@@ -15,7 +15,6 @@
   }
 
   @include media-breakpoint-up(md) {
-    --box-y: 40px;
   }
 
   @include media-breakpoint-up(lg) {
@@ -25,6 +24,6 @@
   }
 
   @include media-breakpoint-up(xl) {
-    --box-y: 60px;
+    --box-y: 50px;
   }
 }

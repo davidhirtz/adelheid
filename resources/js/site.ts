@@ -116,8 +116,8 @@ const onScroll = () => {
 }
 
 let isScrolled = false;
-let headerHeight = 190;
 let isHeaderCollapsed = false;
+let headerHeight = 0;
 let lastYScroll = 0;
 let yPos = 0;
 let instagramItems: Array<InstagramFeedItem> | undefined;
