@@ -1,2 +1,16 @@
 @use "../../node_modules/air-scss/scss/mixins/_breakpoints.scss" as *;
-@use "../../node_modules/air-scss/scss/layout" as *;
+
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+}
+
+.wrap {
+  @include media-breakpoint-up(sm) {
+    padding: 0 var(--box-x);
+  }
+}
+
+.box {
+  padding: var(--box-y) var(--box-x);
+}

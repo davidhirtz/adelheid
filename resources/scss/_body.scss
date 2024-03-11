@@ -1,2 +1,13 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
-@use "../../node_modules/air-scss/scss/body" as *;
+
+body {
+  background: #FFFCF7;
+  color: #000;
+  font-style: normal;
+  font-weight: normal;
+  font: 16px/1.4 'Elegant Lux Pro Mager', sans-serif;
+  letter-spacing: .1em;
+  min-width: 320px;
+  overflow-y: scroll;
+  overscroll-behavior: none;
+}

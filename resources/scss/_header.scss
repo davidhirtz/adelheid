@@ -1,1 +1,89 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
+
+//.block-menu {
+//  .has-menu . & {
+//    display: block;
+//  }
+//}
+
+.header {
+  background: #FFFCF7;
+}
+
+.hidden-menu {
+  @include media-breakpoint-down(md) {
+    .has-menu & {
+      display: none;
+    }
+  }
+}
+
+.header-logo {
+  top: var(--box-y);
+  left: calc(50% - var(--logo) / 2);
+}
+
+.logo {
+  width: var(--logo);
+  padding-top: 45%;
+}
+
+.menu-btn {
+  top: var(--box-y);
+  right: var(--box-x);
+  width: 40px;
+  height: 40px;
+  background: url(/images/site/menu.svg) no-repeat;
+
+  .has-menu & {
+    background: url(/images/site/close.svg) no-repeat;
+  }
+}
+
+.menu {
+  @include media-breakpoint-down(md) {
+    .has-menu & {
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      min-height: calc(100svh - var(--box-y) * 2);
+      text-align: center;
+      font-size: 28px;
+      line-height: 2;
+    }
+  }
+}
+
+.menu-item {
+  @include media-breakpoint-up(lg) {
+    padding: 13px 0 0 20px; // Button border (top) + spacing left
+    font-family: "Bebas Neue", sans-serif;
+    line-height: 1;
+  }
+}
+
+.nav-link {
+  &.active {
+    color: #ad9963;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s;
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: #000;
+      }
+    }
+
+    &.active {
+      border-color: #ad9963;
+    }
+  }
+}
+
+.menu-icon {
+  padding: 40px 5px 0;
+}

@@ -2,7 +2,9 @@
 
 namespace app\helpers;
 
+use davidhirtz\yii2\cms\models\Entry;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 class Html extends \yii\helpers\Html
@@ -31,8 +33,9 @@ class Html extends \yii\helpers\Html
         return parent::a($text, $url, $options);
     }
 
-    public static function nl2br(string $text): string
+    public static function link(Entry $model, array $options = []): string
     {
-        return nl2br($text, false);
+        $text = ArrayHelper::remove($options, 'text', $model->name);
+        return static::a(static::encode($text), $model->getRoute(), $options);
     }
 }

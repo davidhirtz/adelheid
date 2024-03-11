@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d02057d2e9b2b3128e89015078cd8197",
+    "content-hash": "22d1c75609275bd04da073f87a569075",
     "packages": [
         {
             "name": "bower-asset/jquery",
@@ -111,16 +111,16 @@
         },
         {
             "name": "davidhirtz/yii2-anakin",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-anakin.git",
-                "reference": "67774c8cf6d3cede50dc0e56df1b7adf1ad9f425"
+                "reference": "16914f130bb53a8b0b5756583f839c6ca59887d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-anakin/zipball/67774c8cf6d3cede50dc0e56df1b7adf1ad9f425",
-                "reference": "67774c8cf6d3cede50dc0e56df1b7adf1ad9f425",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-anakin/zipball/16914f130bb53a8b0b5756583f839c6ca59887d3",
+                "reference": "16914f130bb53a8b0b5756583f839c6ca59887d3",
                 "shasum": ""
             },
             "require": {
@@ -163,9 +163,9 @@
             "homepage": "https://www.anakin.co/",
             "support": {
                 "issues": "https://github.com/davidhirtz/yii2-anakin/issues",
-                "source": "https://github.com/davidhirtz/yii2-anakin/tree/2.1.4"
+                "source": "https://github.com/davidhirtz/yii2-anakin/tree/2.1.5"
             },
-            "time": "2024-02-29T14:21:17+00:00"
+            "time": "2024-03-11T09:03:56+00:00"
         },
         {
             "name": "davidhirtz/yii2-cms",
@@ -331,16 +331,16 @@
         },
         {
             "name": "davidhirtz/yii2-skeleton",
-            "version": "2.2.3",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-skeleton.git",
-                "reference": "f138486793d4ea5b4e4b381395dc2fd2d09373a6"
+                "reference": "709592359255b9abbdfd72bb36fed40619b44e5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-skeleton/zipball/f138486793d4ea5b4e4b381395dc2fd2d09373a6",
-                "reference": "f138486793d4ea5b4e4b381395dc2fd2d09373a6",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-skeleton/zipball/709592359255b9abbdfd72bb36fed40619b44e5e",
+                "reference": "709592359255b9abbdfd72bb36fed40619b44e5e",
                 "shasum": ""
             },
             "require": {
@@ -405,9 +405,9 @@
             "homepage": "https://www.github.com/davidhirtz/yii2-skeleton",
             "support": {
                 "issues": "https://github.com/davidhirtz/yii2-skeleton/issues",
-                "source": "https://github.com/davidhirtz/yii2-skeleton/tree/2.2.3"
+                "source": "https://github.com/davidhirtz/yii2-skeleton/tree/2.2.6"
             },
-            "time": "2024-03-04T10:28:13+00:00"
+            "time": "2024-03-11T09:31:09+00:00"
         },
         {
             "name": "davidhirtz/yii2-timeago",
@@ -1169,16 +1169,16 @@
         },
         {
             "name": "jfcherng/php-diff",
-            "version": "6.16.1",
+            "version": "6.16.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jfcherng/php-diff.git",
-                "reference": "0a0f50a6da233bc86d105bcfa4efc302e5d6c2fc"
+                "reference": "7f46bcfc582e81769237d0b3f6b8a548efe8799d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jfcherng/php-diff/zipball/0a0f50a6da233bc86d105bcfa4efc302e5d6c2fc",
-                "reference": "0a0f50a6da233bc86d105bcfa4efc302e5d6c2fc",
+                "url": "https://api.github.com/repos/jfcherng/php-diff/zipball/7f46bcfc582e81769237d0b3f6b8a548efe8799d",
+                "reference": "7f46bcfc582e81769237d0b3f6b8a548efe8799d",
                 "shasum": ""
             },
             "require": {
@@ -1223,7 +1223,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jfcherng/php-diff/issues",
-                "source": "https://github.com/jfcherng/php-diff/tree/6.16.1"
+                "source": "https://github.com/jfcherng/php-diff/tree/6.16.2"
             },
             "funding": [
                 {
@@ -1231,7 +1231,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2024-03-07T17:59:15+00:00"
+            "time": "2024-03-10T17:40:29+00:00"
         },
         {
             "name": "jfcherng/php-mb-string",

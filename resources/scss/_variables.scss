@@ -4,15 +4,23 @@
   --box-x: 20px;
   --box-y: 20px;
 
-  @include media-breakpoint-up(md) {
-    --box-x: 30px;
+  --logo: 100px;
+  --header: calc(var(--logo) * 0.45 + var(--box-y) * 2);
+
+  @include media-breakpoint-up(sm) {
+    --box-x: 40px;
     --box-y: 30px;
-    --wrap-x: 20px;
+
+    --logo: 120px;
+  }
+
+  @include media-breakpoint-up(md) {
+    --box-y: 40px;
   }
 
   @include media-breakpoint-up(lg) {
-    --box-x: 40px;
-    --box-y: 40px;
+
+    --logo: 150px;
   }
 
   @include media-breakpoint-up(xl) {

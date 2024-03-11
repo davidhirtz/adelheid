@@ -90,9 +90,9 @@ Structure
 
       app/                the PSR-4 application root, containing custom application models, components, controllers, views and widgets
       config/             application and database configurations
-      messages/           translation files for multilingual pages
       node_modules/       3rd-party NPM libraries (development only)
       resources/          uncompiled CSS and Javascript files and the view templates
       runtime/            cache and log files generated during runtime
+      tests/              various tests for the application
       vendor/             dependent 3rd-party packages
       web/                the webroot, containing the entry script, published resources and uploads

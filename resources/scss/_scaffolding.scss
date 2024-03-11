@@ -1,2 +1,15 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/overlay" as *;
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-facebook {
+  background: url(/images/site/facebook.svg) no-repeat;
+}
+
+.icon-instagram {
+  background: url(/images/site/instagram.svg) no-repeat;
+}

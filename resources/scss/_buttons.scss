@@ -1,2 +1,28 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/buttons" as *;
+
+.btn {
+  display: inline-block;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: normal;
+  padding: 10px 12px;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid #000;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.btn:hover, .btn:focus, .btn.focus {
+  text-decoration: none;
+  outline: 0
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff
+}

@@ -25,6 +25,38 @@ class SetupController extends \davidhirtz\yii2\cms\modules\admin\controllers\Set
                 'name' => 'Home',
                 'slug' => static::getModule()->entryIndexSlug,
                 'title' => Yii::$app->name,
+                'show_in_menu' => true,
+                'show_in_footer' => true,
+            ],
+            [
+                'name' => 'Über uns',
+                'slug' => 'ueber-uns',
+                'show_in_menu' => true,
+                'show_in_footer' => true,
+            ],
+            [
+                'name' => 'Team',
+                'show_in_menu' => true,
+                'show_in_footer' => true,
+            ],
+            [
+                'name' => 'Preise',
+                'show_in_menu' => true,
+                'show_in_footer' => true,
+            ],
+            [
+                'name' => 'Kontakt',
+                'show_in_menu' => true,
+                'show_in_footer' => true,
+            ],
+            [
+                'name' => 'Impressum',
+                'show_in_footer' => true,
+            ],
+
+            [
+                'name' => 'Datenschutz',
+                'show_in_footer' => true,
             ],
         ];
     }

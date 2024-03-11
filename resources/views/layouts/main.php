@@ -4,7 +4,8 @@
  * @var string $content
  */
 
-use davidhirtz\yii2\skeleton\helpers\Html;
+use app\helpers\Html;
+use davidhirtz\yii2\cms\widgets\NavItems;
 use davidhirtz\yii2\skeleton\web\View;
 use davidhirtz\yii2\skeleton\widgets\AdminButton;
 use yii\helpers\Url;
@@ -28,6 +29,44 @@ use yii\helpers\Url;
     </head>
     <body>
     <?php $this->beginBody(); ?>
+    <header class="header fixed-lg w-12">
+        <div class="container box flex-lg justify-between">
+            <div class="absolute header-logo">
+                <a href="/" class="logo canvas">
+                    <img src="/images/site/logo.svg" alt="Adelheid Friseur Logo">
+                </a>
+            </div>
+            <div class="hidden block-sm">
+                <a href="tel:00498614782" class="btn btn-primary uppercase">Termin unter: 0861 4782</a>
+            </div>
+            <nav class="menu hidden block-lg">
+                <ul class="flex-lg uppercase">
+                    <?php foreach (NavItems::getMenuItems() as $entry) {
+                        ?>
+                        <li class="menu-item">
+                            <?= Html::link($entry, ['class' => 'nav-link']); ?>
+                        </li>
+                        <?php
+                    } ?>
+                </ul>
+                <ul class="flex justify-center fixed-lg">
+                    <li class="menu-icon">
+                        <a href="https://www.facebook.com/adelheidfriseur/"
+                           class="block icon icon-facebook"
+                           target="_blank"
+                           title="Facebook"></a>
+                    </li>
+                    <li class="menu-icon">
+                        <a href="https://www.instagram.com/hairstyle.adelheidfrisoer/"
+                           class="block icon icon-instagram"
+                           target="_blank"
+                           title="Instagram"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <button class="menu-btn menu-toggle fixed hidden-lg" aria-label="Menü anzeigen"></button>
     <main>
         <?= $content; ?>
     </main>
