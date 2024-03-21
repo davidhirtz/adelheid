@@ -8,15 +8,22 @@ interface InstagramFeedItem {
     media_type: string;
 }
 
-const router = new Router();
-const gtag = new Gtag('UA-103555137-1');
-const consent = new Consent({modules: [gtag]});
-
 const doc = document;
 const $body = doc.querySelector('body');
 const $header = $body.querySelector('header');
 const $navLinks = $body.querySelectorAll('nav a') as NodeListOf<HTMLAnchorElement>;
 const $cookieReset = doc.getElementById('reset');
+
+const router = new Router();
+const gtag = new Gtag('UA-103555137-1');
+const consent = new Consent({
+    modules: [
+        gtag,
+        {
+            load: () => $cookieReset.parentElement.style.display = 'block',
+        }
+    ]
+});
 
 const isCollapsedClass = 'is-collapsed';
 const isScrolledClass = 'is-scrolled';
@@ -33,6 +40,16 @@ const clickHandler = (querySelector: string, callback: EventListenerOrEventListe
     doc.querySelectorAll(querySelector).forEach((el) => {
         el.addEventListener('click', callback);
     })
+}
+
+const initToggleOnClick = () => {
+    clickHandler('.toggle', (e) => {
+        const $btn = e.target as HTMLButtonElement;
+
+        document.querySelectorAll($btn.dataset.target).forEach(($target: HTMLElement) => {
+            $target.classList.toggle(router.a);
+        });
+    });
 }
 
 const observer = new IntersectionObserver(function (e) {
@@ -143,10 +160,10 @@ clickHandler('.scroll-top', () => {
     router.scrollTo(0);
 });
 
-// $cookieReset.onclick = () => {
-//     consent.setCookie(null, true);
-//     location.reload();
-// };
+$cookieReset.onclick = () => {
+    consent.setCookie(null, true);
+    location.reload();
+};
 
 if (consent.getCookie()) {
     removeClass($cookieReset.parentElement, hiddenClass);
@@ -227,6 +244,7 @@ router.afterRender = () => {
 }
 
 setHeaderHeight();
+initToggleOnClick();
 
 router.afterRender();
 

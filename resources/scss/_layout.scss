@@ -5,6 +5,10 @@
   max-width: 1600px;
 }
 
+.content {
+  min-height: 100svh;
+}
+
 .wrap {
   @include media-breakpoint-up(lg) {
     padding: 0 var(--box-x);

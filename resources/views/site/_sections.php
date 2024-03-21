@@ -12,7 +12,7 @@ use davidhirtz\yii2\cms\widgets\Gallery;
 use davidhirtz\yii2\skeleton\web\View;
 
 ?>
-<div class="content wrap flex flex-wrap justify-center">
+<div class="sections wrap flex flex-wrap justify-center">
     <?php foreach ($sections as $section) {
         ?>
         <section class="<?= $section->getCssClass(); ?> animate observe" id="<?= $section->getHtmlId(); ?>" data-animation="fade-in">

@@ -67,14 +67,149 @@ use yii\helpers\Url;
         </div>
     </header>
     <button class="menu-btn menu-toggle fixed hidden-lg" aria-label="Menü anzeigen"></button>
-    <main class="container hidden-menu">
-        <?= $content; ?>
-    </main>
-    <script src="<?= $this->getFilenameWithVersion('js/site.js'); ?>"></script>
+    <div class="content flex flex-col hidden-menu">
+        <main class="container grow">
+            <?= $content; ?>
+        </main>
+        <footer>
+            <ul class="social-icons-footer social-icons list-inline">
+                <li><a href="https://www.facebook.com/adelheidfriseur/" class="icon-facebook" target="_blank"></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/hairstyle.adelheidfrisoer/" class="icon-instagram"
+                       target="_blank"></a>
+                </li>
+            </ul>
+            <nav class="footer-nav strong">
+                <ul class="flex-md uppercase">
+                    <?php foreach (NavItems::getFooterItems() as $entry) {
+                        ?>
+                        <li class="footer-item">
+                            <?= Html::link($entry); ?>
+                        </li>
+                        <?php
+                    } ?>
+                    <li class="footer-item hidden">
+                        <button id="reset" class="uppercase">Cookies zurücksetzen</button>
+                    </li>
+                </ul>
+            </nav>
+            <a class="scroll-top arrow-top block-xl"></a>
+            <div class="copyright small strong uppercase block-xl">Copyright Adelheid Friseur <?= date('Y'); ?></div>
+        </footer>
+    </div>
+    <div id="cc" class="block-active">
+        <div class="cc-content block-active">
+            <p>
+                Wir benötigen Ihre Zustimmung, um Cookies und Inhalte von Drittanbietern (ggf. auch aus dem EU-Ausland)
+                einzubinden. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.
+            </p>
+            <div class="cc-buttons flex">
+                <button class="cc-button cc-secondary cc-hover toggle strong" data-target=".cc-content">
+                    <?= Yii::t('app', 'Customize') ?>
+                </button>
+                <button class="cc-button cc-secondary cc-hover cc-confirm strong" data-consent="null">
+                    <?= Yii::t('app', 'Reject all') ?>
+                </button>
+                <button class="cc-button cc-hover cc-confirm strong" data-consent="analytics,marketing">
+                    <?= Yii::t('app', 'Allow all') ?>
+                </button>
+            </div>
+        </div>
+        <div class="cc-content block-active active">
+            <div class="cc-wrap flex flex-col">
+                <div class="cc-scrollable">
+                    <div class="text-right">
+                        <button class="strong small toggle" data-target=".cc-content">
+                            <?= Yii::t('app', 'back') ?>
+                        </button>
+                    </div>
+                    <div id="cc-default" class="cc-detail">
+                        <div class="cc-summary flex items-center justify-between">
+                            <button class="cc-title flex items-center strong toggle"
+                                    data-target="#cc-default">
+                                <?= Yii::t('app', 'Necessary cookies') ?>
+                            </button>
+                            <label class="cc-label">
+                                <input type="checkbox" class="cc-checkbox" disabled data-consent="none" checked>
+                            </label>
+                        </div>
+                        <div class="cc-description prose hidden">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore
+                            </p>
+                        </div>
+                    </div>
+                    <div id="cc-external" class="cc-detail">
+                        <div class="cc-summary flex items-center justify-between">
+                            <button class="cc-title flex items-center strong toggle"
+                                    data-target="#cc-external">
+                                <?= Yii::t('app', 'Third-party content') ?>
+                            </button>
+                            <label class="cc-label">
+                                <input type="checkbox" class="cc-checkbox cc-hover" data-consent="external">
+                            </label>
+                        </div>
+                        <div class="cc-description prose hidden">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore
+                            </p>
+                        </div>
+                    </div>
+                    <div id="cc-analytics" class="cc-detail">
+                        <div class="cc-summary flex items-center justify-between">
+                            <button class="cc-title flex items-center strong toggle"
+                                    data-target="#cc-analytics">
+                                <?= Yii::t('app', 'Analytics') ?>
+                            </button>
+                            <label class="cc-label">
+                                <input type="checkbox" class="cc-checkbox cc-hover" data-consent="analytics">
+                            </label>
+                        </div>
+                        <div class="cc-description prose hidden">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore
+                            </p>
+                        </div>
+                    </div>
+                    <div id="cc-marketing" class="cc-detail">
+                        <div class="cc-summary flex items-center justify-between">
+                            <button class="cc-title flex items-center strong toggle"
+                                    data-target="#cc-marketing">
+                                <?= Yii::t('app', 'Marketing') ?>
+                            </button>
+                            <label class="cc-label">
+                                <input type="checkbox" class="cc-checkbox cc-hover" data-consent="marketing">
+                            </label>
+                        </div>
+                        <div class="cc-description prose hidden">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cc-buttons flex">
+                    <button class="cc-button cc-hover cc-confirm strong">
+                        <?= Yii::t('app', 'Allow selected') ?>
+                    </button>
+                    <button class="cc-button cc-secondary cc-hover cc-confirm strong"
+                            data-consent="analytics,external,marketing">
+                        <?= Yii::t('app', 'Allow all') ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php if (Yii::$app->getUser()->can('entryUpdate')) {
         echo AdminButton::widget();
     } ?>
     <?php $this->endBody(); ?>
+    <script src="<?= $this->getFilenameWithVersion('js/site.js'); ?>"></script>
     </body>
     </html>
 <?php $this->endPage(); ?>
