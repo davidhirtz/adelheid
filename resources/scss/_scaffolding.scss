@@ -1,11 +1,17 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/overlay" as *;
-
+@use "mixins/fonts" as *;
 
 .arrow-top {
   width: 40px;
   height: 23px;
   background: url(/images/site/arrow.svg) no-repeat;
+}
+
+.cover {
+  img, video {
+    object-fit: cover;
+  }
 }
 
 .icon {
@@ -21,6 +27,17 @@
   background: url(/images/site/instagram.svg) no-repeat;
 }
 
+.line {
+  display: inline-block;
+  width: 80px;
+  height: 7px;
+  background: linear-gradient(140deg, #fff6ec 0, #1d1d1b 100%);
+}
+
 .small {
   font-size: 14px;
+}
+
+.strong {
+  @extend %bebas;
 }

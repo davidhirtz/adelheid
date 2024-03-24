@@ -71,7 +71,7 @@ use yii\helpers\Url;
         <main class=" grow">
             <?= $content; ?>
         </main>
-        <footer class="footer text-center flex-md items-end">
+        <footer class="footer strong text-center flex-md items-end">
             <nav class="box grow">
                 <ul class="box px-0 flex justify-center justify-start-md">
                     <li class="footer-item">

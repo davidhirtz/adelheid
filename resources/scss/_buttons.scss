@@ -1,10 +1,11 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/buttons" as *;
+@use "mixins/fonts" as *;
 
 .btn {
+  @extend %bebas;
+
   display: inline-block;
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: normal;
   padding: 10px 12px;
   text-align: center;
   white-space: nowrap;

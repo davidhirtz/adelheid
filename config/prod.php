@@ -48,10 +48,10 @@ return [
                     'width' => 374,
                 ],
                 'sm' => [
-                    'width' => 768,
+                    'width' => 620,
                 ],
                 'md' => [
-                    'width' => 1024,
+                    'width' => 1240,
                 ],
                 'lg' => [
                     'width' => 1480,

@@ -10,7 +10,7 @@
 }
 
 .wrap {
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(sm) {
     padding: 0 var(--box-x);
   }
 }

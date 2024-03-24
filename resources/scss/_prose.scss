@@ -1,2 +1,8 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/prose" as *;
+
+.prose {
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+}
