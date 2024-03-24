@@ -156,7 +156,7 @@ let instagramItems: Array<InstagramFeedItem> | undefined;
     }
 };
 
-clickHandler('.scroll-top', () => {
+clickHandler('#scroll-top', () => {
     router.scrollTo(0);
 });
 

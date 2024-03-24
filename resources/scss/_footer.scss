@@ -1,1 +1,14 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
+@use "mixins/fonts" as *;
+
+.footer {
+  @extend %bebas;
+}
+
+.footer-item {
+  margin: 0 5px;
+
+  @include media-breakpoint-up(md) {
+    margin-right: 10px;
+  }
+}

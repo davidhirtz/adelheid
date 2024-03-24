@@ -1,2 +1,6 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/reset";
+
+section {
+  position: relative;
+}

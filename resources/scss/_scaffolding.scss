@@ -1,13 +1,16 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "../../node_modules/air-scss/scss/overlay" as *;
 
-section {
-  position: relative;
+
+.arrow-top {
+  width: 40px;
+  height: 23px;
+  background: url(/images/site/arrow.svg) no-repeat;
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .icon-facebook {
@@ -16,4 +19,8 @@ section {
 
 .icon-instagram {
   background: url(/images/site/instagram.svg) no-repeat;
+}
+
+.small {
+  font-size: 14px;
 }

@@ -71,21 +71,25 @@ use yii\helpers\Url;
         <main class="container grow">
             <?= $content; ?>
         </main>
-        <footer>
-            <ul class="social-icons-footer social-icons list-inline">
-                <li><a href="https://www.facebook.com/adelheidfriseur/" class="icon-facebook" target="_blank"></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/hairstyle.adelheidfrisoer/" class="icon-instagram"
-                       target="_blank"></a>
-                </li>
-            </ul>
-            <nav class="footer-nav strong">
-                <ul class="flex-md uppercase">
+        <footer class="footer text-center flex-md items-end">
+            <nav class="box grow">
+                <ul class="box px-0 flex justify-center justify-start-md">
+                    <li class="footer-item">
+                        <a href="https://www.facebook.com/adelheidfriseur/"
+                           class="block icon icon-facebook"
+                           target="_blank"></a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="https://www.instagram.com/hairstyle.adelheidfrisoer/"
+                           class="block icon icon-instagram"
+                           target="_blank"></a>
+                    </li>
+                </ul>
+                <ul class="flex-sm justify-center justify-start-md">
                     <?php foreach (NavItems::getFooterItems() as $entry) {
                         ?>
                         <li class="footer-item">
-                            <?= Html::link($entry); ?>
+                            <?= Html::link($entry, ['class' => 'nav-link']); ?>
                         </li>
                         <?php
                     } ?>
@@ -94,41 +98,48 @@ use yii\helpers\Url;
                     </li>
                 </ul>
             </nav>
-            <a class="scroll-top arrow-top block-xl"></a>
-            <div class="copyright small strong uppercase block-xl">Copyright Adelheid Friseur <?= date('Y'); ?></div>
+            <div>
+                <div class="box hidden flex-md justify-end">
+                    <button id="scroll-top" class="arrow-top"></button>
+                </div>
+                <div class="box pt-0">
+                    Copyright Adelheid Friseur <?= date('Y'); ?>
+                </div>
+            </div>
         </footer>
     </div>
     <div id="cc" class="block-active">
-        <div class="cc-content block-active">
+        <div class="cc-content block-active active">
             <p>
                 Wir benötigen Ihre Zustimmung, um Cookies und Inhalte von Drittanbietern (ggf. auch aus dem EU-Ausland)
                 einzubinden. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.
             </p>
             <div class="cc-buttons flex">
-                <button class="cc-button cc-secondary cc-hover toggle strong" data-target=".cc-content">
-                    <?= Yii::t('app', 'Customize') ?>
+                <button class="cc-button cc-secondary cc-hover toggle strong"
+                        data-target=".cc-content">
+                    Anpassen
                 </button>
-                <button class="cc-button cc-secondary cc-hover cc-confirm strong" data-consent="null">
-                    <?= Yii::t('app', 'Reject all') ?>
+                <button class="cc-button cc-secondary cc-hover cc-confirm strong"
+                        data-consent="none">
+                    Alle ablehnen
                 </button>
-                <button class="cc-button cc-hover cc-confirm strong" data-consent="analytics,marketing">
-                    <?= Yii::t('app', 'Allow all') ?>
+                <button class="cc-button cc-hover cc-confirm strong"
+                        data-consent="analytics,external">
+                    Alle zustimmen
                 </button>
             </div>
         </div>
-        <div class="cc-content block-active active">
+        <div class="cc-content block-active">
             <div class="cc-wrap flex flex-col">
                 <div class="cc-scrollable">
                     <div class="text-right">
-                        <button class="strong small toggle" data-target=".cc-content">
-                            <?= Yii::t('app', 'back') ?>
-                        </button>
+                        <button class="strong small toggle" data-target=".cc-content">zurück</button>
                     </div>
                     <div id="cc-default" class="cc-detail">
                         <div class="cc-summary flex items-center justify-between">
                             <button class="cc-title flex items-center strong toggle"
                                     data-target="#cc-default">
-                                <?= Yii::t('app', 'Necessary cookies') ?>
+                                Technisch notwendige Cookies
                             </button>
                             <label class="cc-label">
                                 <input type="checkbox" class="cc-checkbox" disabled data-consent="none" checked>
@@ -145,7 +156,7 @@ use yii\helpers\Url;
                         <div class="cc-summary flex items-center justify-between">
                             <button class="cc-title flex items-center strong toggle"
                                     data-target="#cc-external">
-                                <?= Yii::t('app', 'Third-party content') ?>
+                                Inhalte von Drittanbietern
                             </button>
                             <label class="cc-label">
                                 <input type="checkbox" class="cc-checkbox cc-hover" data-consent="external">
@@ -162,7 +173,7 @@ use yii\helpers\Url;
                         <div class="cc-summary flex items-center justify-between">
                             <button class="cc-title flex items-center strong toggle"
                                     data-target="#cc-analytics">
-                                <?= Yii::t('app', 'Analytics') ?>
+                                Statistiken
                             </button>
                             <label class="cc-label">
                                 <input type="checkbox" class="cc-checkbox cc-hover" data-consent="analytics">
@@ -170,36 +181,25 @@ use yii\helpers\Url;
                         </div>
                         <div class="cc-description prose hidden">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore
-                            </p>
-                        </div>
-                    </div>
-                    <div id="cc-marketing" class="cc-detail">
-                        <div class="cc-summary flex items-center justify-between">
-                            <button class="cc-title flex items-center strong toggle"
-                                    data-target="#cc-marketing">
-                                <?= Yii::t('app', 'Marketing') ?>
-                            </button>
-                            <label class="cc-label">
-                                <input type="checkbox" class="cc-checkbox cc-hover" data-consent="marketing">
-                            </label>
-                        </div>
-                        <div class="cc-description prose hidden">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore
+                                Statistik-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten
+                                interagieren, indem Informationen anonym gesammelt und gemeldet werden.
+                                Wenn Sie in die Statistik-Cookies einwilligen, werden ggf. personenbezogene Daten (z.B.
+                                Ihre IP-Adresse) an Dritte außerhalb der EU weitergegeben. Sie willigen in diesem Fall
+                                ausdrücklich ein.
+                                Weitere Informationen, auch zu den Risiken und zur Widerrufsmöglichkeit, finden Sie in
+                                unserer
+                                <a href="/datenschutz">Datenschutzerklärung</a> hier.
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="cc-buttons flex">
                     <button class="cc-button cc-hover cc-confirm strong">
-                        <?= Yii::t('app', 'Allow selected') ?>
+                        Ausgewählte zustimmen
                     </button>
-                    <button class="cc-button cc-secondary cc-hover cc-confirm strong"
-                            data-consent="analytics,external,marketing">
-                        <?= Yii::t('app', 'Allow all') ?>
+                    <button class="cc-button cc-hover cc-confirm strong"
+                            data-consent="analytics,external">
+                        Alle zustimmen
                     </button>
                 </div>
             </div>
