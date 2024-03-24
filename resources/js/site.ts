@@ -33,7 +33,6 @@ const hiddenClass = 'hidden';
 const addClass = ($el: HTMLElement, className?: string) => $el.classList.add(className || router.a);
 const removeClass = ($el: HTMLElement, className?: string) => $el && $el.classList.remove(className || router.a);
 
-const setHeaderHeight = () => headerHeight = $header.offsetHeight
 const resetMenu = () => removeClass($body, hasMenuClass);
 
 const clickHandler = (querySelector: string, callback: EventListenerOrEventListenerObject) => {
@@ -107,9 +106,10 @@ const renderInstagram = () => {
 const isMobile = () => window.innerWidth < 1200;
 
 const onScroll = () => {
-    const scrollY = window.scrollY;
-
     if (!isMobile()) {
+        const scrollY = window.scrollY;
+        const headerHeight = $header.offsetHeight
+
         if (!isHeaderCollapsed && scrollY > lastYScroll && scrollY > headerHeight) {
             addClass($body, isCollapsedClass);
             isHeaderCollapsed = true;
@@ -155,21 +155,6 @@ let instagramItems: Array<InstagramFeedItem> | undefined;
         addClass($body, hasMenuClass);
     }
 };
-
-clickHandler('#scroll-top', () => router.scrollTo(0));
-$cookieReset.onclick = () => {
-    consent.setCookie(null, true);
-    location.reload();
-};
-
-if (consent.getCookie()) {
-    removeClass($cookieReset.parentElement, hiddenClass);
-}
-
-router.onUnhandledClick = () => {
-    router.scrollTo(0);
-    resetMenu();
-}
 
 router.afterRender = () => {
     resetMenu();
@@ -240,10 +225,24 @@ router.afterRender = () => {
     onScroll();
 }
 
-setHeaderHeight();
 initToggleOnClick();
+
+doc.getElementById('scroll-top').onclick = () => router.scrollTo(0);
+
+$cookieReset.onclick = () => {
+    consent.setCookie(null, true);
+    location.reload();
+};
+
+if (consent.getCookie()) {
+    removeClass($cookieReset.parentElement, hiddenClass);
+}
+
+router.onUnhandledClick = () => {
+    router.scrollTo(0);
+    resetMenu();
+}
 
 router.afterRender();
 
 window.addEventListener('scroll', onScroll, {passive: true});
-window.addEventListener('scroll', setHeaderHeight, {passive: true});

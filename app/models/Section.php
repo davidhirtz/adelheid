@@ -13,23 +13,29 @@ class Section extends \davidhirtz\yii2\cms\models\Section
 {
     final public const TYPE_COLUMN = self::TYPE_DEFAULT;
     final public const TYPE_FULL_WIDTH = 2;
+    final public const TYPE_VISUAL = 10;
 
     public static function getTypes(): array
     {
+        $assetOptions = [
+
+        ];
+
         return [
-            static::TYPE_COLUMN => [
-                'name' => Yii::t('app', 'Column'),
+            self::TYPE_COLUMN => [
+                'name' => 'Spalte',
                 'cssClass' => 'w-12 w-6-sm box',
                 'hiddenFields' => [],
                 'sizes' => [],
                 'transformations' => [],
             ],
-            static::TYPE_FULL_WIDTH => [
-                'name' => Yii::t('app', 'Full width'),
+            self::TYPE_VISUAL => [
+                'name' => 'Visual',
                 'cssClass' => 'w-12 w-6-sm',
-                'hiddenFields' => [],
-                'sizes' => [],
-                'transformations' => [],
+                'hiddenFields' => ['name'],
+                'sizes' => 'min(1480px,100vw)',
+                'transformations' => ['xs', 'sm', 'md', 'lg', 'xl'],
+                'viewFile' => '_visuals',
             ],
         ];
     }

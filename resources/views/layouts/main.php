@@ -67,8 +67,8 @@ use yii\helpers\Url;
         </div>
     </header>
     <button class="menu-btn menu-toggle fixed hidden-lg" aria-label="Menü anzeigen"></button>
-    <div class="content flex flex-col hidden-menu">
-        <main class="container grow">
+    <div class="container content flex flex-col hidden-menu">
+        <main class=" grow">
             <?= $content; ?>
         </main>
         <footer class="footer text-center flex-md items-end">

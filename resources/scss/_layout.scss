@@ -15,7 +15,7 @@
   }
 }
 
-.content:first-child {
+.sections:first-child {
   @include media-breakpoint-up(lg) {
     padding-top: calc(var(--logo-h) + var(--box-y));
   }

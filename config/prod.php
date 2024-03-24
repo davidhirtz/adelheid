@@ -44,7 +44,21 @@ return [
         ],
         'media' => [
             'transformations' => [
-                // TODO: Add your transformations here.
+                'xs' => [
+                    'width' => 374,
+                ],
+                'sm' => [
+                    'width' => 768,
+                ],
+                'md' => [
+                    'width' => 1024,
+                ],
+                'lg' => [
+                    'width' => 1480,
+                ],
+                'xl' => [
+                    'width' => 2960,
+                ],
             ],
         ],
     ],

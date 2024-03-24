@@ -53,6 +53,9 @@
   .flex-sm {
     display: flex;
   }
+  .hidden-sm {
+    display: none;
+  }
 }
 @media (min-width: 1024px) {
   .flex-md {
@@ -76,6 +79,10 @@
 
 .fixed {
   position: fixed;
+}
+
+.relative {
+  position: relative;
 }
 
 .static {
