@@ -156,10 +156,7 @@ let instagramItems: Array<InstagramFeedItem> | undefined;
     }
 };
 
-clickHandler('#scroll-top', () => {
-    router.scrollTo(0);
-});
-
+clickHandler('#scroll-top', () => router.scrollTo(0));
 $cookieReset.onclick = () => {
     consent.setCookie(null, true);
     location.reload();
