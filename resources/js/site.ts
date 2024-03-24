@@ -32,6 +32,7 @@ const hiddenClass = 'hidden';
 
 const addClass = ($el: HTMLElement, className?: string) => $el.classList.add(className || router.a);
 const removeClass = ($el: HTMLElement, className?: string) => $el && $el.classList.remove(className || router.a);
+const queryAll = (selectors: string) => router.main.querySelectorAll(selectors) as NodeListOf<HTMLElement>;
 
 const resetMenu = () => removeClass($body, hasMenuClass);
 
@@ -82,7 +83,6 @@ const renderInstagram = () => {
         instagramItems = [];
 
         fetch('https://instafeed.anakin.cloud/adelheid').then(response => response.json()).then(data => {
-            console.log(data);
             if (data.data) {
                 instagramItems = data.data;
                 renderInstagram();
@@ -134,7 +134,6 @@ const onScroll = () => {
 
 let isScrolled = false;
 let isHeaderCollapsed = false;
-let headerHeight = 0;
 let lastYScroll = 0;
 let yPos = 0;
 let instagramItems: Array<InstagramFeedItem> | undefined;
@@ -170,29 +169,45 @@ router.afterRender = () => {
         router.scrollTo(window.scrollY + window.innerHeight / 2);
     });
 
-    // Crossfade.
-    router.main.querySelectorAll('.crossfade').forEach(($el: HTMLElement) => {
-        const $images = $el.querySelectorAll('img');
-        let $active = $images[0];
-        let index = 1;
+    queryAll('.crossfade').forEach(($wrap: HTMLElement) => {
+        const $items: NodeListOf<HTMLElement> = $wrap.querySelectorAll('.crossfade-item');
+        const maxCount = $items.length - 1;
+
+        const preloadNext = () => {
+            if (index < maxCount) {
+                $items[index + 1].classList.add('preloaded');
+            }
+        }
 
         const interval = setInterval(() => {
-            if (!$body.contains($active)) {
+            if (!$body.contains($wrap)) {
                 clearInterval(interval);
+                console.log('Clearing interval...')
                 return;
             }
 
-            $active.classList.remove('active');
-            $active = ($active.nextElementSibling || $images[0]) as HTMLImageElement;
+            console.log(index + " < " + maxCount);
+            const nextIndex = index < maxCount ? (index + 1) : 0;
+            const $current = $items[nextIndex];
 
-            addClass($active);
-            $active.style.zIndex = "" + (index++);
+            $current.classList.add('active');
+            $current.style.zIndex = '2';
 
-        }, parseInt($el.dataset.timeout));
+            setTimeout(() => {
+                $current.style.zIndex = '';
+                $items[index].classList.remove('active');
+                index = nextIndex;
+                preloadNext();
+            }, 1000);
+        }, 4000);
+
+        let index = 0;
+
+        preloadNext();
     });
 
     // Instagram.
-    if (router.main.querySelector('.grid-instagram')) {
+    if (queryAll('.grid-instagram')) {
         renderInstagram();
     }
 
@@ -206,7 +221,7 @@ router.afterRender = () => {
         }
     }
 
-    router.main.querySelectorAll('.team-open').forEach(el => {
+    queryAll('.team-open').forEach(el => {
         el.addEventListener('click', () => {
             removeActiveTeam();
 

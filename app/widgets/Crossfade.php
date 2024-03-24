@@ -14,7 +14,6 @@ use Yii;
 class Crossfade extends Gallery
 {
     public ?Section $section = null;
-    public array $paginationOptions = [];
     public bool $enableWrapperHeight = true;
 
     public function init(): void
@@ -57,7 +56,7 @@ class Crossfade extends Gallery
                     'enableWrapperHeight' => false,
                     'pictureOptions' => [
                         'imgOptions' => [
-                            'loading' => $this->section?->position < 2 ? 'eager' : 'lazy',
+                            'loading' => $asset->position < 2 ? 'eager' : 'lazy',
                         ],
                     ],
                     'wrapperOptions' => [
