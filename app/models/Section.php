@@ -2,9 +2,6 @@
 
 namespace app\models;
 
-use davidhirtz\yii2\skeleton\validators\HtmlValidator;
-use Yii;
-
 /**
  * @property-read Entry $entry {@see static::getEntry()}
  * @property-read Entry[] $entries {@see static::getEntries()}
@@ -15,19 +12,23 @@ class Section extends \davidhirtz\yii2\cms\models\Section
     final public const TYPE_HEADLINE = 2;
     final public const TYPE_COLUMN_SMALL = 3;
     final public const TYPE_FULL_WIDTH = 4;
+    final public const TYPE_HEADLINE_CENTERED = 8;
     final public const TYPE_VISUAL = 10;
     final public const TYPE_GALLERY = 12;
-    final public const TYPE_PRICE_GRID = 20;
+    final public const TYPE_ENTRIES = 20;
 
     public static function getTypes(): array
     {
-        $assetOptions = [
-
-        ];
-
         return [
             self::TYPE_HEADLINE => [
                 'name' => 'Überschrift',
+                'cssClass' => 'text-center text-left-sm',
+                'hiddenFields' => ['content', '#assets'],
+                'viewFile' => '_headlines',
+            ],
+            self::TYPE_HEADLINE_CENTERED => [
+                'name' => 'Überschrift (zentriert)',
+                'cssClass' => 'text-center',
                 'hiddenFields' => ['content', '#assets'],
                 'viewFile' => '_headlines',
             ],
@@ -71,10 +72,11 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                 'name' => 'Galerie',
                 'viewFile' => '_galleries',
             ],
-            self::TYPE_PRICE_GRID => [
-                'name' => 'Preise',
-                'hiddenFields' => ['#assets'],
-                'viewFile' => '_prices',
+            self::TYPE_ENTRIES => [
+                'name' => 'Untereinträge',
+                'hiddenFields' => ['name', 'content', '#assets'],
+                'visible' => fn (self $section) => $section->entry->entry_count > 0,
+                'viewFile' => '_entries',
             ]
         ];
     }

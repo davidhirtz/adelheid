@@ -2,6 +2,7 @@
 
 use app\controllers\SiteController;
 use davidhirtz\yii2\cms\models\Asset;
+use davidhirtz\yii2\cms\models\builders\EntrySiteRelationsBuilder;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\models\Section;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
@@ -25,6 +26,7 @@ return [
             Entry::class => \app\models\Entry::class,
             Section::class => \app\models\Section::class,
             EntryActiveForm::class => \app\modules\admin\widgets\forms\EntryActiveForm::class,
+            EntrySiteRelationsBuilder::class => \app\models\builders\EntrySiteRelationsBuilder::class,
 
             HtmlValidator::class => [
                 'allowedHtmlTags' => ['h1', 'h2', 'h3'],

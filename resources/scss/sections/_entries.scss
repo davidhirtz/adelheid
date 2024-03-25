@@ -1,0 +1,30 @@
+@use "../../../node_modules/air-scss/scss/mixins/breakpoints" as *;
+
+.entry-content {
+  @include media-breakpoint-down(xs) {
+    padding: 20px 0 40px
+  }
+
+  @include media-breakpoint-up(sm) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.entry-overlay {
+  background: url(/images/site/overlay.svg) no-repeat;
+}
+
+.entry-hover {
+  @include media-breakpoint-up(sm) {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .4s;
+
+    :hover > & {
+      opacity: 1;
+    }
+  }
+}

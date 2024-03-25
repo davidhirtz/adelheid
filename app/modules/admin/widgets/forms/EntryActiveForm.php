@@ -5,6 +5,7 @@ namespace app\modules\admin\widgets\forms;
 use app\models\Entry;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\traits\FooterFieldTrait;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\traits\MenuFieldTrait;
+use davidhirtz\yii2\skeleton\widgets\forms\DynamicRangeDropdown;
 
 /**
  * @property Entry $model
@@ -22,7 +23,7 @@ class EntryActiveForm extends \davidhirtz\yii2\cms\modules\admin\widgets\forms\E
             'parent_id',
             'name',
             'content',
-            'publish_date',
+            ['theme', DynamicRangeDropdown::class],
             '-',
             'title',
             'description',

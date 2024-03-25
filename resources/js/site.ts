@@ -156,8 +156,6 @@ let instagramItems: Array<InstagramFeedItem> | undefined;
 };
 
 router.afterRender = () => {
-    resetMenu();
-
     // Menu.
     const url = new URL(location.href);
     const href = url.origin + url.pathname;

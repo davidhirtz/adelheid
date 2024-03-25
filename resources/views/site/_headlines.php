@@ -1,6 +1,7 @@
 <?php
 /**
- * @see Section::TYPE_DEFAULT
+ * @see Section::TYPE_HEADLINE
+ * @see Section::TYPE_HEADLINE_CENTERED
  *
  * @var View $this
  * @var Section[] $sections
@@ -15,13 +16,9 @@ use davidhirtz\yii2\skeleton\web\View;
 <div class="sections">
     <?php foreach ($sections as $section) {
         ?>
-        <section class="text-center text-left-sm animate observe" id="<?= $section->getHtmlId(); ?>" data-animation="fade-in">
+        <section class="<?= $section->getCssClass(); ;?> animate observe" id="<?= $section->getHtmlId(); ?>" data-animation="fade-in">
             <div class="wrap">
-                <?php if ($name = $section->getVisibleAttribute('name')) {
-                    ?>
-                    <h1 class="box pb-0"><?= $name; ?></h1>
-                    <?php
-                } ?>
+                    <h1 class="box pb-0"><?= $section->name ?: $section->entry->name; ?></h1>
                 <div class="line"></div>
             </div>
             <?= AdminLink::tag($section); ?>

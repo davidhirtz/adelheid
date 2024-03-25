@@ -7,11 +7,14 @@
   height: 23px;
   background: url(/images/site/arrow.svg) no-repeat;
 }
-
 .cover {
   img, video {
     object-fit: cover;
   }
+}
+
+.gradient {
+  background: linear-gradient(140deg, #d1cbc2, #fff4e7);
 }
 
 .icon {
@@ -41,4 +44,8 @@
 
 .strong {
   @extend %bebas;
+}
+
+.square {
+  padding-top: 100%;
 }

@@ -121,15 +121,15 @@
   .text-left-sm {
     text-align: left;
   }
-  .text-right-sm {
-    text-align: right;
-  }
 }
 
 .w-12 {
   width: 100%;
 }
 @media (min-width: 768px) {
+  .w-4-sm {
+    width: 33.3333333333%;
+  }
   .w-6-sm {
     width: 50%;
   }
@@ -137,11 +137,5 @@
 @media (min-width: 1024px) {
   .w-3-md {
     width: 25%;
-  }
-  .w-4-md {
-    width: 33.3333333333%;
-  }
-  .w-8-md {
-    width: 66.6666666667%;
   }
 }

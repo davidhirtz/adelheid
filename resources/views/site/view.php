@@ -13,7 +13,11 @@ use davidhirtz\yii2\cms\widgets\Sections;
 use davidhirtz\yii2\skeleton\web\View;
 
 $cssClass = $entry->getCssClass();
-$this->registerJs($cssClass? "document.body.className='{$cssClass}';" : "document.body.removeAttribute('class');", $this::POS_END);
+$this->registerJs($cssClass ? "document.body.className='$cssClass';" : "document.body.removeAttribute('class');", $this::POS_END);
 
-MetaTags::widget(['model' => $entry]);
+MetaTags::widget([
+    'model' => $entry,
+    'transformationName' => 'md',
+]);
+
 echo Sections::widget(['entry' => $entry]);

@@ -18,6 +18,12 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
     final public const THEME_DEFAULT = 1;
     final public const THEME_GRADIENT = 2;
 
+    public function init(): void
+    {
+        $this->contentType = 'text';
+        parent::init();
+    }
+
     public function rules(): array
     {
         return [
@@ -31,9 +37,13 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
 
     public function getCssClass(): string
     {
-        return self::getThemes()[ $this->theme ]['cssClass'] ?? '';
+        return self::getThemes()[$this->theme]['cssClass'] ?? '';
     }
 
+    public function hasDescendantsEnabled(): bool
+    {
+        return parent::hasDescendantsEnabled() && !$this->parent_id;
+    }
 
     public function getThemes(): array
     {
@@ -45,6 +55,15 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
                 'name' => 'Farbverlauf',
                 'cssClass' => 'gradient',
             ],
+        ];
+    }
+
+    public function attributeLabels(): array
+    {
+        return [
+            ...parent::attributeLabels(),
+            'theme' => 'Design',
+            'content' => 'Untertitel',
         ];
     }
 }
