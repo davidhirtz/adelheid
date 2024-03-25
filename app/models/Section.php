@@ -46,7 +46,7 @@ class Section extends \davidhirtz\yii2\cms\models\Section
             ],
             self::TYPE_TEXT_COLUMNS => [
                 'name' => 'Textspalten',
-                'cssClass' => 'w-12 box text-columns',
+                'cssClass' => 'w-12 box text-columns-sm',
                 'hiddenFields' => ['name'],
                 'sizes' => 'min(1360px,100vw)',
                 'transformations' => ['xs', 'sm', 'md', 'lg', 'xl'],
