@@ -8,7 +8,6 @@
 
 use app\helpers\Html;
 use app\models\Section;
-use app\widgets\Crossfade;
 use app\widgets\Preview;
 use davidhirtz\yii2\cms\widgets\AdminLink;
 use davidhirtz\yii2\skeleton\web\View;
@@ -21,12 +20,11 @@ use yii\helpers\Url;
         <section class="box flex-sm" id="<?= $section->getHtmlId(); ?>">
             <?php foreach ($section->entries as $i => $entry) {
                 ?>
-                <div class="relative w-4-sm w-3-md">
+                <div class="entry relative w-4-sm w-3-md animate observe" style="--i:<?= $i; ?>" data-animation="fade-in">
                     <?php if ($route = $entry->getRoute()) {
                         ?>
                         <a href="<?= $url = Url::toRoute($route) ?>"
-                           aria-label="<?= Html::encode($entry->name); ?>"
-                           class="block relative">
+                           aria-label="<?= Html::encode($entry->name); ?>">
                             <?= Preview::widget([
                                 'entry' => $entry,
                                 'lazyLoading' => $i > 3,

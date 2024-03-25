@@ -11,6 +11,8 @@
   --h2: 26px;
   --h3: 20px;
 
+  --color: #000;
+
   @include media-breakpoint-up(sm) {
     --box-x: 30px;
     --box-y: 30px;

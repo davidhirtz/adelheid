@@ -1,5 +1,11 @@
 @use "../../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 
+.entry {
+  @include media-breakpoint-up(sm) {
+    animation-delay: calc(var(--i) * .1s);
+  }
+}
+
 .entry-content {
   @include media-breakpoint-down(xs) {
     padding: 20px 0 40px

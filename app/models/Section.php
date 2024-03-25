@@ -63,7 +63,7 @@ class Section extends \davidhirtz\yii2\cms\models\Section
             self::TYPE_VISUAL => [
                 'name' => 'Visual',
                 'cssClass' => 'w-12 w-6-sm',
-                'hiddenFields' => ['name'],
+                'hiddenFields' => ['name', 'content'],
                 'sizes' => 'min(1480px,100vw)',
                 'transformations' => ['xs', 'sm', 'md', 'lg', 'xl'],
                 'viewFile' => '_visuals',

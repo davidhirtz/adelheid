@@ -7,6 +7,12 @@
   height: 23px;
   background: url(/images/site/arrow.svg) no-repeat;
 }
+
+.caption {
+  margin-top: 0;
+  --color: #fff;
+}
+
 .cover {
   img, video {
     object-fit: cover;

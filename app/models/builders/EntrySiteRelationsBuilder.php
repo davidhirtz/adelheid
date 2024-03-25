@@ -57,6 +57,6 @@ class EntrySiteRelationsBuilder extends \davidhirtz\yii2\cms\models\builders\Ent
 
     protected function populateChildEntryRelations(Section $section): void
     {
-        $section->populateRelation('entries', $this->entry->children);
+        $section->populateRelation('entries', array_values($this->entry->children));
     }
 }
