@@ -12,6 +12,7 @@ class Section extends \davidhirtz\yii2\cms\models\Section
     final public const TYPE_HEADLINE = 2;
     final public const TYPE_COLUMN_SMALL = 3;
     final public const TYPE_FULL_WIDTH = 4;
+    final public const TYPE_ROW = 6;
     final public const TYPE_HEADLINE_CENTERED = 8;
     final public const TYPE_VISUAL = 10;
     final public const TYPE_GALLERY = 12;
@@ -52,6 +53,16 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                     'min(250px,25vw)',
                 ],
                 'transformations' => ['xs', 'sm', 'md'],
+            ],
+            self::TYPE_ROW => [
+                'name' => 'Zeile',
+                'hiddenFields' => ['name'],
+                'sizes' => [
+                    'sm' => '100wv',
+                    'min(740px,50vw)',
+                ],
+                'transformations' => ['xs', 'sm', 'md', 'lg'],
+                'viewFile' => '_rows',
             ],
             self::TYPE_FULL_WIDTH => [
                 'name' => 'Zentriert',
