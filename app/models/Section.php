@@ -14,10 +14,12 @@ class Section extends \davidhirtz\yii2\cms\models\Section
     final public const TYPE_FULL_WIDTH = 4;
     final public const TYPE_TEXT_COLUMNS = 5;
     final public const TYPE_ROW = 6;
+    final public const TYPE_COLUMN_MEDIUM = 7;
     final public const TYPE_HEADLINE_CENTERED = 8;
     final public const TYPE_VISUAL = 10;
     final public const TYPE_GALLERY = 12;
     final public const TYPE_ENTRIES = 20;
+    final public const TYPE_INSTAGRAM = 30;
 
     public static function getTypes(): array
     {
@@ -35,12 +37,34 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                 'viewFile' => '_headlines',
             ],
             self::TYPE_COLUMN => [
-                'name' => 'Spalte',
+                'name' => 'Spalte (1/2)',
                 'cssClass' => 'w-12 w-6-sm box',
                 'hiddenFields' => ['name'],
                 'sizes' => [
                     'xs' => '100vw',
                     'min(620px,50vw)',
+                ],
+                'transformations' => ['xs', 'sm', 'md'],
+            ],
+            self::TYPE_COLUMN_MEDIUM => [
+                'name' => 'Spalte (1/3)',
+                'cssClass' => 'w-12 w-6-sm w-4-md box',
+                'hiddenFields' => ['name'],
+                'sizes' => [
+                    'xs' => '100vw',
+                    'sm' => 'min(620px,50vw)', // todo
+                    'min(250px,25vw)',
+                ],
+                'transformations' => ['xs', 'sm', 'md'],
+            ],
+            self::TYPE_COLUMN_SMALL => [
+                'name' => 'Spalte (1/4)',
+                'cssClass' => 'w-12 w-6-sm w-3-md box text-center',
+                'hiddenFields' => ['name'],
+                'sizes' => [
+                    'xs' => '100vw',
+                    'sm' => 'min(620px,50vw)',
+                    'min(250px,25vw)',
                 ],
                 'transformations' => ['xs', 'sm', 'md'],
             ],
@@ -50,17 +74,6 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                 'hiddenFields' => ['name'],
                 'sizes' => 'min(1360px,100vw)',
                 'transformations' => ['xs', 'sm', 'md', 'lg', 'xl'],
-            ],
-            self::TYPE_COLUMN_SMALL => [
-                'name' => 'Spalte (klein)',
-                'cssClass' => 'w-12 w-6-sm w-3-md box text-center',
-                'hiddenFields' => ['name'],
-                'sizes' => [
-                    'xs' => '100vw',
-                    'sm' => 'min(620px,50vw)',
-                    'min(250px,25vw)',
-                ],
-                'transformations' => ['xs', 'sm', 'md'],
             ],
             self::TYPE_ROW => [
                 'name' => 'Zeile',
@@ -97,7 +110,12 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                 'hiddenFields' => ['name', 'content', '#assets'],
                 'visible' => fn (self $section) => $section->entry->entry_count > 0,
                 'viewFile' => '_entries',
-            ]
+            ],
+            self::TYPE_INSTAGRAM => [
+                'name' => 'Instagram',
+                'hiddenFields' => ['content', '#assets'],
+                'viewFile' => '_instagram',
+            ],
         ];
     }
 }

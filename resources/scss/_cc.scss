@@ -1,9 +1,9 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 @use "sass:color";
 
-$text-color: #fff;
+$text-color: #000;
 $border: 1px solid $text-color;
-$font-size: 12px;
+$font-size: 14px;
 
 .block-active:not(.active) {
   display: none;
@@ -21,8 +21,9 @@ $font-size: 12px;
   width: calc(100vw - var(--offset) * 2);
   max-height: calc(100svh - var(--offset) * 2);
   max-width: 390px;
-  background: #096FB9;
-  color: #fff;
+  background: #ad9963;
+  border-radius: 7px;
+  color: $text-color;
   z-index: 99;
 
   @include media-breakpoint-up(sm) {
@@ -46,13 +47,13 @@ $font-size: 12px;
 .cc-buttons {
   margin-top: 20px;
   border: $border;
-  border-radius: 6px;
+  border-radius: 7px;
 }
 
 .cc-button {
   padding: 12px;
   width: 100%;
-  font-size: $font-size;
+  font-size: 12px;
   flex-grow: 1;
   line-height: 1;
   text-align: center;

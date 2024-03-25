@@ -74,6 +74,7 @@ const observer = new IntersectionObserver(function (e) {
             }
 
             observer.unobserve($el);
+            $el.classList.remove('observe')
         }
     }
 }, {threshold: [0]});
@@ -90,16 +91,18 @@ const renderInstagram = () => {
         });
     } else {
         instagramItems.forEach((item, i) => {
-            const container = router.main.querySelector(`.instagram-${i}`);
+            const container = router.main.querySelector(`.feed-${i}`);
 
-            const content = item.media_type === 'VIDEO' ?
-                `<video class="observe" data-src="${item.media_url}" autoplay loop muted playsinline></video>` :
-                `<img loading="lazy" src="${item.media_url}" alt>`;
+            const content = item.media_type === 'VIDEO'
+                ? `<video class="observe" data-src="${item.media_url}" autoplay loop muted playsinline></video>`
+                : `<img loading="lazy" src="${item.media_url}" alt>`;
 
             if (container) {
-                container.innerHTML = `<a class="canvas" href="${item.permalink}" target="_blank">${content}</a>`;
+                container.innerHTML = `<a class="block" href="${item.permalink}" target="_blank">${content}</a>`;
             }
         });
+
+        initObserver();
     }
 }
 
@@ -132,6 +135,9 @@ const onScroll = () => {
     }
 }
 
+const initObserver = () =>
+    setTimeout(() => doc.querySelectorAll('.observe').forEach($el => observer.observe($el)), 1);
+
 let isScrolled = false;
 let isHeaderCollapsed = false;
 let lastYScroll = 0;
@@ -162,9 +168,11 @@ router.afterRender = () => {
 
     $navLinks.forEach($link => $link.classList.toggle(router.a, $link.href === href));
 
-    // Home.
-    clickHandler('.scroll-down', () => {
-        router.scrollTo(window.scrollY + window.innerHeight / 2);
+    clickHandler('.back', (e) => {
+        if (router.referrer) {
+            history.back();
+            e.preventDefault();
+        }
     });
 
     queryAll('.crossfade').forEach(($wrap: HTMLElement) => {
@@ -184,7 +192,6 @@ router.afterRender = () => {
                 return;
             }
 
-            console.log(index + " < " + maxCount);
             const nextIndex = index < maxCount ? (index + 1) : 0;
             const $current = $items[nextIndex];
 
@@ -205,36 +212,11 @@ router.afterRender = () => {
     });
 
     // Instagram.
-    if (queryAll('.grid-instagram')) {
+    if (queryAll('.feed')) {
         renderInstagram();
     }
 
-    // Team.
-    let activeTeam: HTMLElement;
-
-    const removeActiveTeam = () => {
-        if (activeTeam) {
-            activeTeam.classList.remove(router.a);
-            activeTeam = null;
-        }
-    }
-
-    queryAll('.team-open').forEach(el => {
-        el.addEventListener('click', () => {
-            removeActiveTeam();
-
-            activeTeam = el.closest('.item');
-            activeTeam.classList.add(router.a)
-        });
-    });
-
-    clickHandler('.team-close', removeActiveTeam);
-
-    // Observer
-    setTimeout(() => doc.querySelectorAll('.observe').forEach($el => observer.observe($el)), 1);
-
-    // gtag.sendPageView();
-
+    initObserver();
     onScroll();
 }
 

@@ -63,17 +63,24 @@
   height: var(--logo-h);
 }
 
-.menu-btn {
+.header-btn {
   top: var(--box-y);
   right: var(--box-x);
   width: 40px;
   height: 40px;
-  background: url(/images/site/menu.svg) no-repeat;
   z-index: 10;
+}
+
+.menu-btn {
+  background: url(/images/site/menu.svg) no-repeat;
 
   .has-menu & {
     background: url(/images/site/close.svg) no-repeat;
   }
+}
+
+.header-back {
+  background: url(/images/site/close.svg) no-repeat;
 }
 
 .menu {

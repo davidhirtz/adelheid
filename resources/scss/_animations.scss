@@ -4,14 +4,6 @@
   animation-fill-mode: both
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1
-  }
-}
 
 @keyframes fadeIn {
   from {
@@ -25,17 +17,6 @@
 .fade-in {
   animation-name: fadeIn;
   visibility: visible;
-}
-
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0)
-  }
-  to {
-    opacity: 1;
-    transform: none
-  }
 }
 
 @keyframes fadeInUp {

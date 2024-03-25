@@ -65,6 +65,9 @@
   }
 }
 @media (min-width: 1024px) {
+  .block-md {
+    display: block;
+  }
   .flex-md {
     display: flex;
   }
@@ -147,6 +150,10 @@
   }
 }
 
+.w-6 {
+  width: 50%;
+}
+
 .w-12 {
   width: 100%;
 }
@@ -161,5 +168,8 @@
 @media (min-width: 1024px) {
   .w-3-md {
     width: 25%;
+  }
+  .w-4-md {
+    width: 33.3333333333%;
   }
 }

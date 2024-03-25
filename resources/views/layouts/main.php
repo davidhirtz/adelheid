@@ -32,13 +32,13 @@ use yii\helpers\Url;
     <header class="header w-12">
         <div class="container">
             <div class="navbar grid box items-center justify-center">
-                <div class="phone hidden block-sm">
+                <div class="phone hidden block-sm hidden-popup">
                     <a href="tel:00498614782" class="btn btn-primary uppercase">Termin unter: 0861 4782</a>
                 </div>
                 <a href="/" class="logo canvas mx-auto">
                     <img src="/images/site/logo.svg" alt="Adelheid Friseur Logo">
                 </a>
-                <nav class="menu hidden block-lg">
+                <nav class="menu hidden block-lg hidden-popup">
                     <ul class="flex-lg justify-end uppercase">
                         <?php foreach (NavItems::getMenuItems() as $entry) {
                             ?>
@@ -66,9 +66,9 @@ use yii\helpers\Url;
             </div>
         </div>
     </header>
-    <button class="menu-btn menu-toggle fixed hidden-lg" aria-label="Menü anzeigen"></button>
+    <button class="menu-btn header-btn menu-toggle fixed hidden-lg hidden-popup" aria-label="Menü anzeigen"></button>
     <div class="container content flex flex-col hidden-menu">
-        <main class=" grow">
+        <main class="grow">
             <?= $content; ?>
         </main>
         <footer class="footer strong text-center flex-md items-end">
@@ -145,7 +145,7 @@ use yii\helpers\Url;
                                 <input type="checkbox" class="cc-checkbox" disabled data-consent="none" checked>
                             </label>
                         </div>
-                        <div class="cc-description prose hidden">
+                        <div class="cc-description hidden">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                 incididunt ut labore
@@ -162,7 +162,7 @@ use yii\helpers\Url;
                                 <input type="checkbox" class="cc-checkbox cc-hover" data-consent="external">
                             </label>
                         </div>
-                        <div class="cc-description prose hidden">
+                        <div class="cc-description hidden">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                 incididunt ut labore
@@ -179,7 +179,7 @@ use yii\helpers\Url;
                                 <input type="checkbox" class="cc-checkbox cc-hover" data-consent="analytics">
                             </label>
                         </div>
-                        <div class="cc-description prose hidden">
+                        <div class="cc-description hidden">
                             <p>
                                 Statistik-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten
                                 interagieren, indem Informationen anonym gesammelt und gemeldet werden.

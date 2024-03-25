@@ -6,7 +6,7 @@
  * @var Entry $entry
  */
 
-use davidhirtz\yii2\cms\controllers\SiteController;
+use app\controllers\SiteController;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\widgets\MetaTags;
 use davidhirtz\yii2\cms\widgets\Sections;
@@ -19,5 +19,11 @@ MetaTags::widget([
     'model' => $entry,
     'transformationName' => 'md',
 ]);
+
+if ($entry->parent_id) {
+    ?>
+    <a href="/<?= $entry->parent_slug ?>" class="header-btn header-back back fixed hidden block-popup" aria-label="Zurück"></a>
+    <?php
+}
 
 echo Sections::widget(['entry' => $entry]);

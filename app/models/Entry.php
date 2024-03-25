@@ -16,7 +16,7 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
     use FooterAttributeTrait;
 
     final public const THEME_DEFAULT = 1;
-    final public const THEME_GRADIENT = 2;
+    final public const THEME_OVERLAY = 2;
 
     public function init(): void
     {
@@ -51,9 +51,9 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
             static::THEME_DEFAULT => [
                 'name' => 'Standard',
             ],
-            static::THEME_GRADIENT => [
-                'name' => 'Farbverlauf',
-                'cssClass' => 'gradient',
+            static::THEME_OVERLAY => [
+                'name' => 'Overlay',
+                'cssClass' => 'popup gradient',
             ],
         ];
     }

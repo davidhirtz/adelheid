@@ -2,7 +2,6 @@
 
 body {
   background: #FFFCF7;
-  background-attachment: fixed !important;
   color: var(--color);
   font-style: normal;
   font-weight: normal;
@@ -11,4 +10,20 @@ body {
   min-width: 320px;
   overflow-y: scroll;
   overscroll-behavior: none;
+}
+
+.popup {
+  background-attachment: fixed !important;
+}
+
+.hidden-popup {
+  .popup & {
+    display: none;
+  }
+}
+
+.block-popup {
+  .popup & {
+    display: block;
+  }
 }

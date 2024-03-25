@@ -2,6 +2,7 @@
 /**
  * @see Section::TYPE_COLUMN
  * @see Section::TYPE_COLUMN_SMALL
+ * @see Section::TYPE_COLUMN_MEDIUM
  * @see Section::TYPE_FULL_WIDTH
  *
  * @var View $this
