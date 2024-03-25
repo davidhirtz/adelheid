@@ -20,10 +20,10 @@ MetaTags::widget([
     'transformationName' => 'md',
 ]);
 
+echo Sections::widget(['entry' => $entry]);
+
 if ($entry->parent_id) {
     ?>
     <a href="/<?= $entry->parent_slug ?>" class="header-btn header-back back fixed hidden block-popup" aria-label="Zurück"></a>
     <?php
 }
-
-echo Sections::widget(['entry' => $entry]);
