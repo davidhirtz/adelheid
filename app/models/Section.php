@@ -16,6 +16,7 @@ class Section extends \davidhirtz\yii2\cms\models\Section
     final public const TYPE_COLUMN_SMALL = 3;
     final public const TYPE_FULL_WIDTH = 4;
     final public const TYPE_VISUAL = 10;
+    final public const TYPE_GALLERY = 12;
     final public const TYPE_PRICE_GRID = 20;
 
     public static function getTypes(): array
@@ -65,6 +66,10 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                 'sizes' => 'min(1480px,100vw)',
                 'transformations' => ['xs', 'sm', 'md', 'lg', 'xl'],
                 'viewFile' => '_visuals',
+            ],
+            self::TYPE_GALLERY => [
+                'name' => 'Galerie',
+                'viewFile' => '_galleries',
             ],
             self::TYPE_PRICE_GRID => [
                 'name' => 'Preise',

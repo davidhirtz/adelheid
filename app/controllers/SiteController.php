@@ -25,6 +25,8 @@ class SiteController extends \davidhirtz\yii2\cms\controllers\SiteController
         Yii::$app->getRequest()->enableCsrfValidation = false;
         $this->spacelessOutput = true;
 
+        $this->setViewPath('@views/site');
+
         parent::init();
     }
 }

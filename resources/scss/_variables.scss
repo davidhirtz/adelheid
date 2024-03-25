@@ -7,8 +7,9 @@
   --logo-w: 100px;
   --logo-h: calc(var(--logo-w) * 0.45);
 
-  --h1: 44px;
+  --h1: 36px;
   --h2: 26px;
+  --h3: 20px;
 
   @include media-breakpoint-up(sm) {
     --box-x: 30px;
@@ -18,18 +19,27 @@
   }
 
   @include media-breakpoint-up(md) {
+    --h1: 40px;
+    --h2: 30px;
+    --h3: 24px;
   }
 
   @include media-breakpoint-up(lg) {
     --box-x: 40px;
-    --box-y: 50px;
+    --box-y: 40px;
     --logo-w: 150px;
 
-    --h1: 70px;
+    --h1: 44px;
+    --h2: 34px;
+    --h3: 28px;
   }
 
   @include media-breakpoint-up(xl) {
     --box-x: 60px;
     --box-y: 50px;
+
+    --h1: 50px;
+    --h2: 40px;
+    --h3: 30px;
   }
 }

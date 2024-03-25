@@ -19,7 +19,7 @@ use davidhirtz\yii2\skeleton\web\View;
             <div class="wrap">
                 <?php if ($name = $section->getVisibleAttribute('name')) {
                     ?>
-                    <h2 class="box pb-0"><?= $name; ?></h2>
+                    <h1 class="box pb-0"><?= $name; ?></h1>
                     <?php
                 } ?>
                 <div class="line"></div>

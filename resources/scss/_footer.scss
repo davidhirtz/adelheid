@@ -1,9 +1,9 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 
 .footer-item {
-  margin: 0 5px;
+  margin: 5px;
 
   @include media-breakpoint-up(md) {
-    margin-right: 10px;
+    margin: 0 10px 0 0;
   }
 }
