@@ -5,6 +5,7 @@ use davidhirtz\yii2\cms\models\Asset;
 use davidhirtz\yii2\cms\models\builders\EntrySiteRelationsBuilder;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\models\Section;
+use davidhirtz\yii2\cms\modules\admin\widgets\forms\AssetActiveForm;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
 use davidhirtz\yii2\cms\widgets\Canvas;
 use davidhirtz\yii2\skeleton\validators\HtmlValidator;
@@ -24,10 +25,11 @@ return [
     'container' => [
         'definitions' => [
             Asset::class => \app\models\Asset::class,
+            AssetActiveForm::class => \app\modules\admin\widgets\forms\AssetActiveForm::class,
             Entry::class => \app\models\Entry::class,
-            Section::class => \app\models\Section::class,
             EntryActiveForm::class => \app\modules\admin\widgets\forms\EntryActiveForm::class,
             EntrySiteRelationsBuilder::class => \app\models\builders\EntrySiteRelationsBuilder::class,
+            Section::class => \app\models\Section::class,
 
             Canvas::class => [
                 'captionOptions' => [
@@ -35,8 +37,9 @@ return [
                 ],
             ],
             HtmlValidator::class => [
-                'allowedHtmlTags' => ['h1', 'h2', 'h3'],
                 'allowedClasses' => ['btn'],
+                'allowedHtmlTags' => ['h1', 'h2', 'h3'],
+                'allowTables' => true,
             ],
         ],
     ],

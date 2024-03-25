@@ -115,25 +115,11 @@
     }
 
     &.active {
-      border-color: #ad9963;
+      border-color: #ad9963 !important;
     }
   }
 }
 
-//.menu-icons {
-//  @include media-breakpoint-up(lg) {
-//    position: fixed;
-//    flex-flow: column;
-//    right: 10px;
-//    top: 50%;
-//    transform: translateY(-50%);
-//  }
-//}
-
 .menu-icon {
   padding: 40px 5px 0;
-
-  //@include media-breakpoint-up(lg) {
-  //  padding: 5px 0;
-  //}
 }

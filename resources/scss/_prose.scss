@@ -1,14 +1,27 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
-@use "../../node_modules/air-scss/scss/prose" as * with (
-$prose-margin: 1rem 0,
-);
 
 .prose {
+  & > * {
+    margin: 1rem 0;
+  }
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
   &:not(:first-child) {
-    margin-top: 20px;
+    margin-top: 1rem;
   }
 
   @include media-breakpoint-up(lg) {
     font-size: 18px;
+  }
+
+  a:not(.btn) {
+    border-bottom: 1px solid var(--color);
   }
 }

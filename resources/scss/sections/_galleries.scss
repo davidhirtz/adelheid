@@ -1,0 +1,14 @@
+@use "../../../node_modules/air-scss/scss/mixins/breakpoints" as *;
+
+.gallery {
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gallery-wide{
+  @include media-breakpoint-up(sm) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}

@@ -12,6 +12,7 @@ class Section extends \davidhirtz\yii2\cms\models\Section
     final public const TYPE_HEADLINE = 2;
     final public const TYPE_COLUMN_SMALL = 3;
     final public const TYPE_FULL_WIDTH = 4;
+    final public const TYPE_TEXT_COLUMNS = 5;
     final public const TYPE_ROW = 6;
     final public const TYPE_HEADLINE_CENTERED = 8;
     final public const TYPE_VISUAL = 10;
@@ -43,6 +44,13 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                 ],
                 'transformations' => ['xs', 'sm', 'md'],
             ],
+            self::TYPE_TEXT_COLUMNS => [
+                'name' => 'Textspalten',
+                'cssClass' => 'w-12 box text-columns',
+                'hiddenFields' => ['name'],
+                'sizes' => 'min(1360px,100vw)',
+                'transformations' => ['xs', 'sm', 'md', 'lg', 'xl'],
+            ],
             self::TYPE_COLUMN_SMALL => [
                 'name' => 'Spalte (klein)',
                 'cssClass' => 'w-12 w-6-sm w-3-md box text-center',
@@ -68,8 +76,8 @@ class Section extends \davidhirtz\yii2\cms\models\Section
                 'name' => 'Zentriert',
                 'cssClass' => 'w-12 box text-center',
                 'hiddenFields' => ['name'],
-                'sizes' => '100vw',
-                'transformations' => ['xs', 'sm', 'md'],
+                'sizes' => 'min(1360px,100vw)',
+                'transformations' => ['xs', 'sm', 'md', 'lg', 'xl'],
             ],
             self::TYPE_VISUAL => [
                 'name' => 'Visual',
@@ -81,6 +89,7 @@ class Section extends \davidhirtz\yii2\cms\models\Section
             ],
             self::TYPE_GALLERY => [
                 'name' => 'Galerie',
+                'hiddenFields' => ['name', 'content'],
                 'viewFile' => '_galleries',
             ],
             self::TYPE_ENTRIES => [

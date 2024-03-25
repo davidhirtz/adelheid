@@ -13,18 +13,12 @@ use Yii;
  */
 class Crossfade extends Gallery
 {
-    public ?Section $section = null;
+    public Section $section;
     public bool $enableWrapperHeight = true;
 
     public function init(): void
     {
-        $this->assets = $this->assets ?? $this->section->getVisibleAssets();
-
-        Html::addCssClass($this->wrapperOptions, [
-            'images',
-            'relative',
-        ]);
-
+        $this->assets ??= $this->section->getVisibleAssets();
         parent::init();
     }
 
