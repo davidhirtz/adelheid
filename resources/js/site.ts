@@ -25,6 +25,7 @@ const consent = new Consent({
     ]
 });
 
+const observeCssClass = 'observe';
 const isCollapsedClass = 'is-collapsed';
 const isScrolledClass = 'is-scrolled';
 const hasMenuClass = 'has-menu';
@@ -74,7 +75,7 @@ const observer = new IntersectionObserver(function (e) {
             }
 
             observer.unobserve($el);
-            $el.classList.remove('observe')
+            removeClass($el, observeCssClass);
         }
     }
 }, {threshold: [0]});
@@ -136,7 +137,7 @@ const onScroll = () => {
 }
 
 const initObserver = () =>
-    setTimeout(() => doc.querySelectorAll('.observe').forEach($el => observer.observe($el)), 1);
+    setTimeout(() => doc.querySelectorAll(`.${observeCssClass}`).forEach($el => observer.observe($el)), 1);
 
 let isScrolled = false;
 let isHeaderCollapsed = false;
