@@ -31,7 +31,7 @@ class Crossfade extends Gallery
             $content = Canvas::widget([
                 'asset' => current($assets),
             ]);
-            
+
             return Html::tag('div', $content, $this->options);
         }
 
