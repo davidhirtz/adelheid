@@ -1,8 +1,7 @@
 @use "../../node_modules/air-scss/scss/mixins/breakpoints" as *;
 
 :root {
-  --box-x: 20px;
-  --box-y: 20px;
+  --box: 20px;
 
   --logo-w: 100px;
   --logo-h: calc(var(--logo-w) * 0.45);
@@ -14,8 +13,7 @@
   --color: #000;
 
   @include media-breakpoint-up(sm) {
-    --box-x: 30px;
-    --box-y: 30px;
+    --box: 30px;
 
     --logo-w: 120px;
   }
@@ -27,8 +25,7 @@
   }
 
   @include media-breakpoint-up(lg) {
-    --box-x: 40px;
-    --box-y: 40px;
+    --box: 40px;
     --logo-w: 150px;
 
     --h1: 44px;
@@ -37,8 +34,7 @@
   }
 
   @include media-breakpoint-up(xl) {
-    --box-x: 60px;
-    --box-y: 50px;
+    --box: 60px;
 
     --h1: 50px;
     --h2: 40px;

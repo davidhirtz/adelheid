@@ -9,8 +9,9 @@
 }
 
 .caption {
-  margin-top: 0;
   --color: #fff;
+  color: #fff;
+  margin-top: 0;
 }
 
 .cover {
@@ -38,7 +39,7 @@
 
 .line {
   display: inline-block;
-  margin-top: calc(var(--box-y) / 2);
+  margin-top: calc(var(--box) / 2);
   width: 80px;
   height: 7px;
   background: linear-gradient(140deg, #fff6ec 0, #1d1d1b 100%);
@@ -59,7 +60,7 @@
 .text-columns-sm {
   @include media-breakpoint-up(sm) {
     column-count: 2;
-    column-gap: calc(var(--box-x) * 2);
+    column-gap: calc(var(--box) * 2);
 
     h3 {
       break-after: avoid;

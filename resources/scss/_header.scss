@@ -64,8 +64,8 @@
 }
 
 .header-btn {
-  top: var(--box-y);
-  right: var(--box-x);
+  top: var(--box);
+  right: var(--box);
   width: 40px;
   height: 40px;
   z-index: 10;
@@ -84,7 +84,7 @@
   background-size: 30px;
 
   @include media-breakpoint-up(xl) {
-    right: calc(50vw - 800px + var(--box-x)); // 1600px max-width
+    right: calc(50vw - 800px + var(--box)); // 1600px max-width
   }
 }
 

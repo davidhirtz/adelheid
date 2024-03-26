@@ -15,16 +15,16 @@
 
 .wrap {
   @include media-breakpoint-up(sm) {
-    padding: 0 var(--box-x);
+    padding: 0 var(--box);
   }
 }
 
 .sections:first-child {
   @include media-breakpoint-up(lg) {
-    padding-top: calc(var(--logo-h) + var(--box-y));
+    padding-top: calc(var(--logo-h) + var(--box));
   }
 }
 
 .box {
-  padding: var(--box-y) var(--box-x);
+  padding: var(--box);
 }

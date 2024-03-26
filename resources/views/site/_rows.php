@@ -25,7 +25,7 @@ use davidhirtz\yii2\skeleton\web\View;
                     'section' => $section,
                 ]); ?>
             </div>
-            <div class="box pt-0-d-xs w-6-sm animate observe" data-animation="fade-in">
+            <div class="box prose pt-0-d-xs w-6-sm animate observe" data-animation="fade-in">
                 <?= $section->content; ?>
             </div>
             <?= AdminLink::tag($section); ?>

@@ -24,6 +24,9 @@ class Gallery extends \davidhirtz\yii2\cms\widgets\Gallery
         foreach ($assets as $asset) {
             $options = [
                 'enableWrapperHeight' => false,
+                'captionOptions' => [
+                    'class' => 'box caption prose flex flex-col justify-end text-left',
+                ],
                 'pictureOptions' => [
                     'imgOptions' => [
                     ],

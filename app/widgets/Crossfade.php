@@ -24,8 +24,17 @@ class Crossfade extends Gallery
 
     protected function renderAssetsInternal(array $assets): string
     {
+        $options = [
+            'captionOptions' => [
+                'class' => 'caption prose flex flex-col justify-center text-center',
+            ],
+        ];
+
         if (count($assets) == 1) {
-            return Canvas::widget(['asset' => current($assets)]);
+            return Canvas::widget([
+                'asset' => current($assets),
+                ...$options
+            ]);
         }
 
         $content = '';
@@ -47,6 +56,7 @@ class Crossfade extends Gallery
 
             foreach ($assets as $asset) {
                 $options = [
+                    ...$options,
                     'enableWrapperHeight' => false,
                     'pictureOptions' => [
                         'imgOptions' => [

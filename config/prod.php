@@ -7,7 +7,6 @@ use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\models\Section;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\AssetActiveForm;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
-use davidhirtz\yii2\cms\widgets\Canvas;
 use davidhirtz\yii2\skeleton\validators\HtmlValidator;
 
 return [
@@ -31,11 +30,6 @@ return [
             EntrySiteRelationsBuilder::class => \app\models\builders\EntrySiteRelationsBuilder::class,
             Section::class => \app\models\Section::class,
 
-            Canvas::class => [
-                'captionOptions' => [
-                    'class' => 'caption prose flex flex-col justify-center text-center',
-                ],
-            ],
             HtmlValidator::class => [
                 'allowedClasses' => ['btn'],
                 'allowedHtmlTags' => ['h1', 'h2', 'h3'],
