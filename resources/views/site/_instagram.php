@@ -20,8 +20,7 @@ use davidhirtz\yii2\skeleton\web\View;
                  id="<?= $section->getHtmlId(); ?>">
             <h2 class="box pb-0"><?= Html::nl2br(Html::encode($section->name)) ?></h2>
             <div class="line"></div>
-            <div class="feed-icon icon-instagram"></div>
-            <div class="flex feed mx-auto">
+            <div class="box flex feed mx-auto">
                 <div class="w-12 w-md-6">
                     <div class="feed-item feed-1 animate observe"
                          data-animation="fade-in-up"></div>
