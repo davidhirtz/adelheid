@@ -34,6 +34,10 @@ $font-size: 14px;
 
 .cc-content {
   font-size: $font-size;
+
+  a {
+    border-bottom: $border;
+  }
 }
 
 .cc-wrap {
