@@ -80,7 +80,8 @@
 }
 
 .header-back {
-  background: url(/images/site/back.svg) no-repeat;
+  background: url(/images/site/back.svg) center no-repeat;
+  background-size: 30px;
 
   @include media-breakpoint-up(xl) {
     right: calc(50vw - 800px + var(--box-x)); // 1600px max-width
