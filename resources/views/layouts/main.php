@@ -102,7 +102,7 @@ use yii\helpers\Url;
             </nav>
             <div>
                 <div class="box hidden flex-md justify-end">
-                    <button id="scroll-top" class="arrow-top"></button>
+                    <button id="scroll-top" class="arrow-top" aria-label="Hochscrollen"></button>
                 </div>
                 <div class="box pt-0">
                     Copyright Adelheid Friseur <?= date('Y'); ?>
