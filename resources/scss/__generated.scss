@@ -63,6 +63,9 @@
   .hidden-sm {
     display: none;
   }
+  .justify-center-sm {
+    justify-content: center;
+  }
 }
 @media (min-width: 1024px) {
   .block-md {
@@ -135,10 +138,6 @@
 }
 .text-center {
   text-align: center;
-}
-
-.text-left {
-  text-align: left;
 }
 
 .text-right {

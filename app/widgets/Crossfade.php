@@ -4,9 +4,7 @@ namespace app\widgets;
 
 use app\helpers\Html;
 use app\models\Section;
-use davidhirtz\yii2\cms\widgets\Canvas;
 use davidhirtz\yii2\cms\widgets\Gallery;
-use Yii;
 
 /**
  * CSS classes used: hidden, hidden-sm, block-sm
@@ -19,21 +17,20 @@ class Crossfade extends Gallery
     public function init(): void
     {
         $this->assets ??= $this->section->getVisibleAssets();
+
+        Html::addCssClass($this->options, [
+            'images',
+        ]);
+
         parent::init();
     }
 
     protected function renderAssetsInternal(array $assets): string
     {
-        $options = [
-            'captionOptions' => [
-                'class' => 'caption prose flex flex-col justify-center text-center',
-            ],
-        ];
 
         if (count($assets) == 1) {
             return Canvas::widget([
                 'asset' => current($assets),
-                ...$options
             ]);
         }
 
@@ -56,7 +53,6 @@ class Crossfade extends Gallery
 
             foreach ($assets as $asset) {
                 $options = [
-                    ...$options,
                     'enableWrapperHeight' => false,
                     'pictureOptions' => [
                         'imgOptions' => [

@@ -3,6 +3,7 @@
 namespace app\modules\admin\widgets\forms;
 
 use app\models\Asset;
+use davidhirtz\yii2\skeleton\widgets\forms\DynamicRangeDropdown;
 
 /**
  * @property Asset $model
@@ -15,6 +16,8 @@ class AssetActiveForm extends \davidhirtz\yii2\cms\modules\admin\widgets\forms\A
             ? [
                 'status',
                 'type',
+                ['theme', DynamicRangeDropdown::class],
+                ['layout', DynamicRangeDropdown::class],
                 'content',
                 'alt_text',
                 'link',

@@ -13,7 +13,7 @@
     margin-bottom: 0;
   }
 
-  &:not(:first-child) {
+  & + .images {
     margin-top: 1rem;
   }
 
