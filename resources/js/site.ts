@@ -33,9 +33,6 @@ const consent = new Consent({
         {
             categories: [externalCookieConsent],
             load: () => setTimeout(renderInstagram, 500),
-        },
-        {
-            load: () => $cookieReset.style.display = 'block',
         }
     ]
 });
