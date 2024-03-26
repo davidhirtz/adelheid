@@ -27,11 +27,12 @@ class Crossfade extends Gallery
 
     protected function renderAssetsInternal(array $assets): string
     {
-
         if (count($assets) == 1) {
-            return Canvas::widget([
+            $content = Canvas::widget([
                 'asset' => current($assets),
             ]);
+            
+            return Html::tag('div', $content, $this->options);
         }
 
         $content = '';
