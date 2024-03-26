@@ -77,12 +77,14 @@ use yii\helpers\Url;
                     <li class="footer-item">
                         <a href="https://www.facebook.com/adelheidfriseur/"
                            class="block icon icon-facebook"
-                           target="_blank"></a>
+                           target="_blank"
+                           title="Facebook"></a>
                     </li>
                     <li class="footer-item">
                         <a href="https://www.instagram.com/hairstyle.adelheidfrisoer/"
                            class="block icon icon-instagram"
-                           target="_blank"></a>
+                           target="_blank"
+                           title="Instagram"></a>
                     </li>
                 </ul>
                 <ul class="flex-sm justify-center justify-start-md">
