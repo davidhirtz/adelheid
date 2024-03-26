@@ -1,11 +1,12 @@
 import Router, {Consent, Gtag} from "skeleton-router";
 
-interface InstagramFeedItem {
+interface FeedItem {
     id: string;
     caption: string;
     media_url: string;
     permalink: string;
     media_type: string;
+    timestamp: string | null;
 }
 
 const doc = document;
@@ -14,6 +15,13 @@ const $header = $body.querySelector('header');
 const $navLinks = $body.querySelectorAll('nav a') as NodeListOf<HTMLAnchorElement>;
 const $cookieReset = doc.getElementById('reset');
 
+const observeCssClass = 'observe';
+const isCollapsedClass = 'is-collapsed';
+const isScrolledClass = 'is-scrolled';
+const hasMenuClass = 'has-menu';
+const hiddenClass = 'hidden';
+const externalCookieConsent = 'external';
+
 const router = new Router();
 const gtag = new Gtag('UA-103555137-1');
 const consent = new Consent({
@@ -21,15 +29,17 @@ const consent = new Consent({
         gtag,
         {
             load: () => $cookieReset.parentElement.style.display = 'block',
+        },
+        {
+            categories: [externalCookieConsent],
+            load: () => setTimeout(renderInstagram, 500),
+        },
+        {
+            load: () => $cookieReset.style.display = 'block',
         }
     ]
 });
 
-const observeCssClass = 'observe';
-const isCollapsedClass = 'is-collapsed';
-const isScrolledClass = 'is-scrolled';
-const hasMenuClass = 'has-menu';
-const hiddenClass = 'hidden';
 
 const addClass = ($el: HTMLElement, className?: string) => $el.classList.add(className || router.a);
 const removeClass = ($el: HTMLElement, className?: string) => $el && $el.classList.remove(className || router.a);
@@ -81,29 +91,31 @@ const observer = new IntersectionObserver(function (e) {
 }, {threshold: [0]});
 
 const renderInstagram = () => {
-    if (instagramItems === undefined) {
-        instagramItems = [];
+    if (queryAll('.feed') && consent.hasCategory(externalCookieConsent)) {
+        if (instagramItems === undefined) {
+            instagramItems = [];
 
-        fetch('https://instafeed.anakin.cloud/adelheid').then(response => response.json()).then(data => {
-            if (data.data) {
-                instagramItems = data.data;
-                renderInstagram();
-            }
-        });
-    } else {
-        instagramItems.forEach((item, i) => {
-            const container = router.main.querySelector(`.feed-${i}`);
+            fetch('https://instafeed.anakin.cloud/adelheid').then(response => response.json()).then(data => {
+                if (data.data) {
+                    instagramItems = data.data;
+                    renderInstagram();
+                }
+            });
+        } else {
+            instagramItems.forEach((item, i) => {
+                const container = router.main.querySelector(`.feed-${i}`);
 
-            const content = item.media_type === 'VIDEO'
-                ? `<video class="observe" data-src="${item.media_url}" autoplay loop muted playsinline></video>`
-                : `<img loading="lazy" src="${item.media_url}" alt>`;
+                const content = item.media_type === 'VIDEO'
+                    ? `<video class="observe" data-src="${item.media_url}" autoplay loop muted playsinline></video>`
+                    : `<img loading="lazy" src="${item.media_url}" alt>`;
 
-            if (container) {
-                container.innerHTML = `<a class="block" href="${item.permalink}" target="_blank">${content}</a>`;
-            }
-        });
+                if (container) {
+                    container.innerHTML = `<a class="block" href="${item.permalink}" target="_blank">${content}</a>`;
+                }
+            });
 
-        initObserver();
+            initObserver();
+        }
     }
 }
 
@@ -143,7 +155,7 @@ let isScrolled = false;
 let isHeaderCollapsed = false;
 let lastYScroll = 0;
 let yPos = 0;
-let instagramItems: Array<InstagramFeedItem> | undefined;
+let instagramItems: FeedItem[];
 
 (doc.querySelector('.menu-toggle') as HTMLButtonElement).onclick = () => {
     if ($body.classList.contains(hasMenuClass)) {
@@ -213,9 +225,7 @@ router.afterRender = () => {
     });
 
     // Instagram.
-    if (queryAll('.feed')) {
-        renderInstagram();
-    }
+    renderInstagram();
 
     initObserver();
     onScroll();
@@ -226,7 +236,7 @@ initToggleOnClick();
 doc.getElementById('scroll-top').onclick = () => router.scrollTo(0);
 
 $cookieReset.onclick = () => {
-    consent.setCookie(null, true);
+    consent.setCookie('none', true);
     location.reload();
 };
 
